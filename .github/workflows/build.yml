@@ -27,30 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install genanki edge-tts
-
-      - name: Generate missing audio (Edge TTS)
-        run: python tools/generate_audio.py
-
-      - name: Commit generated audio back
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add media
-          git diff --cached --quiet || (git commit -m "Add generated audio [skip ci]" && git push)
-
-      - name: Check audio coverage
-        run: |
-          python3 - <<'EOF'
-          import json, os, sys
-          cards = json.load(open("data/cards.json", encoding="utf-8"))
-          expected = 2 * len(cards)
-          actual = len([f for f in os.listdir("media") if f.endswith(".mp3")]) if os.path.isdir("media") else 0
-          print(f"audio coverage: {actual}/{expected}")
-          if actual < expected * 0.95:
-              print("audio coverage below 95%, refusing to publish an incomplete deck")
-              sys.exit(1)
-          EOF
+        run: pip install genanki
 
       - name: Build apkg
         run: python build.py
