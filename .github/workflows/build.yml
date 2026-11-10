@@ -1,0 +1,71 @@
+name: build-apkg
+
+# data/cards.json、media/ 音频或 build.py 有变化时自动重新打包并发布 Release。
+# 固定下载链接（永远指向最新一包）：
+# https://github.com/yydlun/native-nihongo/releases/latest/download/native-nihongo.apkg
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "media/**"
+      - "build.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install genanki edge-tts
+
+      - name: Generate missing audio (Edge TTS)
+        run: python tools/generate_audio.py
+
+      - name: Commit generated audio back
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add media
+          git diff --cached --quiet || (git commit -m "Add generated audio [skip ci]" && git push)
+
+      - name: Check audio coverage
+        run: |
+          python3 - <<'EOF'
+          import json, os, sys
+          cards = json.load(open("data/cards.json", encoding="utf-8"))
+          expected = 2 * len(cards)
+          actual = len([f for f in os.listdir("media") if f.endswith(".mp3")]) if os.path.isdir("media") else 0
+          print(f"audio coverage: {actual}/{expected}")
+          if actual < expected * 0.95:
+              print("audio coverage below 95%, refusing to publish an incomplete deck")
+              sys.exit(1)
+          EOF
+
+      - name: Build apkg
+        run: python build.py
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="r${{ github.run_number }}"
+          TITLE="native-nihongo 第 ${{ github.run_number }} 版（$(date +%F)）"
+          NOTES="自动打包发布（commit ${{ github.sha }}）。
+
+          固定下载链接（永远指向最新版）：
+          https://github.com/yydlun/native-nihongo/releases/latest/download/native-nihongo.apkg
+
+          在 Anki 里直接用新包覆盖导入即可更新卡片内容，已有复习记录会保留；请勿先删除旧牌组再导入。"
+          gh release create "$TAG" dist/native-nihongo.apkg \
+            --title "$TITLE" --notes "$NOTES"
