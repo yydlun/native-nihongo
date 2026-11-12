@@ -1,7 +1,9 @@
 name: generate-audio
 
 # 独立的音频生成任务：为 data/cards.json 里缺失的卡片补齐 Edge TTS 音频，
-# 提交回 media/。这次提交会触发 build-apkg 工作流，从而自动发布带音频的新版。
+# 提交回 media/，然后在本流程内直接打包发布带音频的新版。
+# （GITHUB_TOKEN 的推送不会触发其他工作流、显式派发又会被权限拦截，
+#   所以打包发布合并在本流程里做，不再跨流程触发 build-apkg。）
 # 触发方式：手动 workflow_dispatch，或 data/** 有推送时（新卡需要音频）。
 # 注意：本工作流不监听 media/**，所以它自己的提交不会递归触发自己。
 
@@ -45,9 +47,24 @@ jobs:
             echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # GITHUB_TOKEN 的推送不会自动触发其他工作流，必须显式派发打包发布。
-      - name: Trigger build and release
+      # GITHUB_TOKEN 的推送不会触发其他工作流、显式派发也会被权限拦截（403），
+      # 所以在本流程内直接打包发布。版本号取现有 Release 最大 r<N> + 1，
+      # 避免与 build-apkg 的 run_number 规则撞号。
+      - name: Build and release with audio
         if: steps.commit.outputs.pushed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run build.yml --repo ${{ github.repository }}
+        run: |
+          pip install genanki
+          python build.py
+          NEXT=$(( $(gh release list --repo ${{ github.repository }} --limit 100 --json tagName --jq '[.[].tagName | select(startswith("r")) | ltrimstr("r") | tonumber] | max // 0') + 1 ))
+          TAG="r${NEXT}"
+          TITLE="native-nihongo 第 ${NEXT} 版（$(date +%F)）"
+          NOTES="自动打包发布（含本轮补齐的发音，commit ${{ github.sha }}）。
+
+          固定下载链接（永远指向最新版）：
+          https://github.com/yydlun/native-nihongo/releases/latest/download/native-nihongo.apkg
+
+          在 Anki 里直接用新包覆盖导入即可更新卡片内容，已有复习记录会保留；请勿先删除旧牌组再导入。"
+          gh release create "$TAG" dist/native-nihongo.apkg \
+            --title "$TITLE" --notes "$NOTES"
