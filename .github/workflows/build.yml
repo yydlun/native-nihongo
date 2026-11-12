@@ -32,17 +32,28 @@ jobs:
       - name: Build apkg
         run: python build.py
 
+      # 版本号与 generate-audio 统一：取现有 Release 最大 r<N> + 1（撞号时重算重试一次），
+      # 不再用 run_number——音频工作流也会发版，run_number 会与已有 tag 撞号。
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="r${{ github.run_number }}"
-          TITLE="native-nihongo 第 ${{ github.run_number }} 版（$(date +%F)）"
-          NOTES="自动打包发布（commit ${{ github.sha }}）。
+          CREATED=""
+          for attempt in 1 2; do
+            NEXT=$(( $(gh release list --repo ${{ github.repository }} --limit 100 --json tagName --jq '[.[].tagName | select(startswith("r")) | ltrimstr("r") | tonumber] | max // 0') + 1 ))
+            TAG="r${NEXT}"
+            TITLE="native-nihongo 第 ${NEXT} 版（$(date +%F)）"
+            NOTES="自动打包发布（commit ${{ github.sha }}）。
 
-          固定下载链接（永远指向最新版）：
-          https://github.com/yydlun/native-nihongo/releases/latest/download/native-nihongo.apkg
+            固定下载链接（永远指向最新版）：
+            https://github.com/yydlun/native-nihongo/releases/latest/download/native-nihongo.apkg
 
-          在 Anki 里直接用新包覆盖导入即可更新卡片内容，已有复习记录会保留；请勿先删除旧牌组再导入。"
-          gh release create "$TAG" dist/native-nihongo.apkg \
-            --title "$TITLE" --notes "$NOTES"
+            在 Anki 里直接用新包覆盖导入即可更新卡片内容，已有复习记录会保留；请勿先删除旧牌组再导入。"
+            if gh release create "$TAG" dist/native-nihongo.apkg --title "$TITLE" --notes "$NOTES"; then
+              CREATED=1
+              break
+            fi
+            echo "tag $TAG 已存在，重新计算后重试"
+            sleep 5
+          done
+          [ -n "$CREATED" ]
