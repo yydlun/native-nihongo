@@ -85,6 +85,11 @@ button.replay-button svg, button.replay-button img {
 .rel-audio button.replay-button img {
   width: 22px !important; height: 22px !important; }
 .rline { font-size: 16px; color: #6b6151; letter-spacing: .02em; margin-top: 2px; }
+.accdata { display: none; }
+.acc-h { border-top: 2px solid #c96a1e; padding-top: 1px; }
+.nightMode .acc-h { border-top-color: #e58a48; }
+.acc-d { color: #c96a1e; font-size: 12px; }
+.nightMode .acc-d { color: #e58a48; }
 .nightMode .rline { color: #a99f90; }
 .meaning { font-size: 24px; font-weight: 700; margin: 12px 0 0; }
 .senses { margin-top: 16px; }
@@ -196,6 +201,33 @@ AFMT = """
   if (n > 1500) document.body.classList.add("dense2");
   else if (n > 850) document.body.classList.add("dense1");
 })();
+</script>
+<script>
+try {
+  var d = document.querySelector(".accdata");
+  var r = document.querySelector(".rline");
+  if (d && r) {
+    var acc = parseInt(d.getAttribute("data-acc"), 10);
+    var s = r.textContent.replace(/\s+/g, "");
+    var small = "ゃゅょャュョ";
+    var morae = [];
+    for (var i = 0; i < s.length; i++) {
+      var ch = s.charAt(i);
+      if (small.indexOf(ch) >= 0 && morae.length) morae[morae.length - 1] += ch;
+      else morae.push(ch);
+    }
+    var n = morae.length, out = "";
+    for (var j = 0; j < n; j++) {
+      var high;
+      if (acc === 0) high = j >= 1;
+      else if (acc === 1) high = j === 0;
+      else high = j >= 1 && j < acc;
+      out += high ? '<span class="acc-h">' + morae[j] + "</span>" : morae[j];
+      if (acc >= 1 && j === acc - 1) out += '<span class="acc-d">\ua71c</span>';
+    }
+    if (n > 0) r.innerHTML = out;
+  }
+} catch (e) {}
 </script>
 """
 
@@ -481,13 +513,16 @@ def render_senses(card, media_set, incoming=None):
             f'<div class="tr"><span class="tag">［訳］</span>{html.escape(s["example_zh"])}</div>'
             "</div>"
         )
+    acc_span = ""
+    if card.get("accent") is not None:
+        acc_span = f'<span class="accdata" data-acc="{card["accent"]}"></span>'
     utags = usage_tags(card, incoming)
     head = ""
     if utags:
         head = ('<div class="utags">' + "".join(
             f'<span class="utag {cls}">{html.escape(t)}</span>'
             for t, cls in utags) + "</div>")
-    return head + "".join(blocks)
+    return acc_span + head + "".join(blocks)
 
 
 def render_collocations(card, by_id, media_set):
@@ -552,11 +587,12 @@ def render_collocations(card, by_id, media_set):
 
     rels = []
     for r in singles:
-        sub = html.escape(r["meaning"])
         if r["note"]:
-            sub += f'（{html.escape(r["note"])}）'
+            sub = html.escape(r["meaning"]) + f'（{html.escape(r["note"])}）'
         elif r.get("scene"):
-            sub += f'（{html.escape(r["scene"])}）'
+            sub = html.escape(r["scene"])
+        else:
+            sub = html.escape(r["meaning"])
         rels.append(
             '<div class="rel">' + head_html(r)
             + f'<div class="rel-sub">{sub}</div></div>'
@@ -569,9 +605,9 @@ def render_collocations(card, by_id, media_set):
             f'<span class="gh-note">{html.escape(note)}</span></div>'
         )
         for r in members:
-            gsub = html.escape(r["meaning"])
-            if r.get("scene"):
-                gsub += f'（{html.escape(r["scene"])}）'
+            # a scene already carries the gloss + scenario, so it
+            # replaces the plain meaning instead of duplicating it
+            gsub = html.escape(r["scene"]) if r.get("scene") else html.escape(r["meaning"])
             rels.append(
                 '<div class="rel g">' + head_html(r, with_chip=False)
                 + f'<div class="rel-sub">{gsub}</div></div>'
