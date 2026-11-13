@@ -54,13 +54,14 @@ CSS = """
 .Search { font-size: 16px; text-decoration: none; width: 27px; text-align: center; }
 .Gpt { width: 27px; height: 27px;
   background-image: url("data:image/png;base64,__GPT_ICON_B64__");
-  background-size: 80% 80%; background-position: center; background-repeat: no-repeat; }
+  background-size: 100% 100%; background-position: center; background-repeat: no-repeat; }
 .Dict { font-size: 15px; text-decoration: none; }
 .WordLink { color: inherit; text-decoration: none; border-bottom: 1px dotted #d97706; }
 .GptL { width: 19px; height: 19px;
   background-image: url("data:image/png;base64,__GPT_ICON_B64__");
-  background-size: 80% 80%; background-position: center; background-repeat: no-repeat;
+  background-size: 100% 100%; background-position: center; background-repeat: no-repeat;
   display: inline-block; vertical-align: middle; }
+.col-list .GptL { margin-left: 8px; }
 .faudio { width: 76px; text-align: right; }
 a.replaybutton, a.replay-button, button.replay-button {
   display: inline-flex !important; align-items: center; justify-content: center;
@@ -256,7 +257,7 @@ def render_collocations(card, by_id, media_set):
     if cols:
         items = "".join(
             f'<li><a class="Dict WordLink" data-w="{html.escape(x, quote=True)}" '
-            f'target="_blank" rel="noopener">{html.escape(x)}</a> '
+            f'target="_blank" rel="noopener">{html.escape(x)}</a>'
             f'<a class="GptL" data-w="{html.escape(x, quote=True)}" '
             f'target="_blank" rel="noopener"></a></li>'
             for x in cols)
