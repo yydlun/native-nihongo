@@ -351,18 +351,25 @@ def furigana_html(text, stem, stem_kana=None):
         if not done:
             # combo headwords joined by ・or /: match each component,
             # minus a trailing をする/する
-            def _core(comp):
-                for suf in ("をする", "する"):
+            def _cores(comp):
+                out = [comp]
+                for suf in ("をする", "する", "す", "を"):
                     if comp.endswith(suf) and len(comp) > len(suf) + 1:
-                        return comp[:-len(suf)]
-                return comp
+                        out.append(comp[:-len(suf)])
+                if out[-1].endswith("を"):
+                    out.append(out[-1][:-1])
+                return out
             for comp in re.split(r"[・/／]", stem):
-                if len(_core(comp)) >= 2 and mark_span(surfs, _core(comp)):
-                    done = True
+                for cand in _cores(comp):
+                    if len(cand) >= 2 and mark_span(surfs, cand):
+                        done = True
+                        break
             if stem_kana:
                 for comp in re.split(r"[・/／]", stem_kana):
-                    if len(_core(comp)) >= 2 and mark_span(reads, _core(comp)):
-                        done = True
+                    for cand in _cores(comp):
+                        if len(cand) >= 2 and mark_span(reads, cand):
+                            done = True
+                            break
         if not done:
             # punctuation-insensitive pass (fronts like ありえない、マジか?!
             # vs fullwidth ？！ in examples)
