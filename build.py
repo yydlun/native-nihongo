@@ -48,8 +48,8 @@ CSS = """
   text-align: left; }
 .nightMode .card, .card.nightMode { background: #20201e; color: #e9e4d8; }
 .qhead { display: flex; align-items: center; justify-content: space-between;
-  margin: 10px 2px 4px; }
-.front { font-size: 34px; font-weight: 600; text-align: center; flex: 1; }
+  margin: 6px 2px 2px; }
+.front { font-size: 32px; font-weight: 600; text-align: center; flex: 1; }
 .tools { display: flex; align-items: center; gap: 4px; min-width: 76px; }
 .Search { font-size: 16px; text-decoration: none; width: 27px; text-align: center; }
 .Gpt { width: 27px; height: 27px;
@@ -71,49 +71,73 @@ a.replaybutton, a.replay-button, button.replay-button {
 a.replaybutton img, a.replay-button img, a.replay-button svg,
 button.replay-button svg, button.replay-button img {
   width: 30px !important; height: 30px !important; }
-.sep { border: none; border-top: 1px solid #ddd3c0; margin: 12px 0; }
-.nightMode .sep { border-top-color: #444444; }
-.rline { font-size: 20px; color: #6b6151; letter-spacing: .02em; }
+.rel-audio a.replaybutton, .rel-audio a.replay-button,
+.rel-audio button.replay-button {
+  width: 22px !important; height: 22px !important; }
+.rel-audio a.replaybutton img, .rel-audio a.replay-button img,
+.rel-audio a.replay-button svg, .rel-audio button.replay-button svg,
+.rel-audio button.replay-button img {
+  width: 22px !important; height: 22px !important; }
+.rline { font-size: 17px; color: #6b6151; letter-spacing: .02em; margin-top: 2px; }
 .nightMode .rline { color: #b6ab97; }
-.meaning { font-size: 20px; font-weight: 700; margin: 2px 0 6px; }
-.sense { margin: 10px 0 14px; border-left: 3px solid #ead9bd; padding-left: 10px; }
+.meaning { font-size: 19px; font-weight: 700; margin: 12px 0 0; }
+.senses { margin-top: 16px; }
+.utags { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 14px; }
+.utag { font-size: 12px; color: #6f6154; border: 1px solid #d8cbb2;
+  border-radius: 8px; padding: 0 7px; line-height: 1.7; }
+.nightMode .utag { color: #b3a892; border-color: #55503f; }
+.sense { margin: 0 0 18px; border-left: 3px solid #ead9bd; padding-left: 12px; }
 .nightMode .sense { border-left-color: #57492e; }
-.gloss { font-weight: 600; margin-bottom: 2px; }
+.gloss { font-weight: 500; font-size: 16.5px; color: #5d5342; margin-bottom: 2px; }
+.nightMode .gloss { color: #c9bda6; }
 .num { color: #c96a1e; font-weight: 700; margin-right: 4px; }
 .ex { display: flex; align-items: flex-start; gap: 6px; }
-.tag { color: #a08b6d; font-size: 15px; white-space: nowrap; padding-top: 3px; }
-.ex-text { flex: 1; }
+.tag { color: #b39b78; font-size: 13px; white-space: nowrap; padding-top: 6px; }
+.ex-text { flex: 1; font-size: 19px; line-height: 1.6; }
 .ex-audio { flex: none; }
 .hl { color: #e07b39; font-weight: 700; }
 ruby rt { font-size: 11px; color: #8a7f6a; }
-.tr { color: #7d7466; font-size: 17px; }
-.nightMode .tr { color: #a99f8d; }
-.sec { margin: 12px 0; }
-.sec-h { color: #a08b6d; font-size: 15px; margin-bottom: 3px; }
-.col-list { margin: 0; padding: 0; list-style: none; color: #33529e; font-size: 17.5px; }
+.tr { color: #6f6154; font-size: 14.5px; margin-top: 8px; }
+.nightMode .tr { color: #b3a892; }
+.sec { margin: 20px 0 0; }
+.sec-h { color: #a08b6d; font-size: 14px; margin-bottom: 6px; }
+.col-list { margin: 0; padding: 0; list-style: none; color: #33529e; font-size: 17px; }
 .nightMode .col-list { color: #9db8ec; }
-.col-list li { margin: 2px 0; }
+.col-list li { margin: 4px 0; }
 .col-list li::before { content: "・"; color: #c98a3d; }
-.rel { margin: 7px 0; }
+.rel { margin: 10px 0; }
+.rel.g { margin: 5px 0; }
+.rel-gh { display: flex; align-items: center; gap: 6px; margin: 12px 0 2px; }
+.gh-note { font-size: 13.5px; color: #6f6154; }
+.nightMode .gh-note { color: #b3a892; }
 .rel-head { display: flex; align-items: center; gap: 6px; }
 .chip { font-size: 12px; color: #ffffff; background: #c98a3d; border-radius: 8px;
   padding: 1px 7px; white-space: nowrap; }
-.rel-front { font-size: 20px; font-weight: 600; color: #1f6f5c; }
+.c-oral { background: #2e7d32; }
+.c-syn { background: #2563eb; }
+.c-fam { background: #6483c4; }
+.c-wri { background: #4456a8; }
+.c-idi { background: #d97706; }
+.c-kei { background: #8a6d3b; }
+.c-ant { background: #b3402e; }
+.rel-front { font-size: 18px; font-weight: 600; color: #1f6f5c; }
 .nightMode .rel-front { color: #7fd1b9; }
-.rel-read { color: #6b6151; }
+.rel-read { color: #6b6151; font-size: 15px; }
 .nightMode .rel-read { color: #b6ab97; }
 .rel-audio { margin-left: auto; flex: none; }
-.rel-sub { color: #7d7466; font-size: 16px; }
-.nightMode .rel-sub { color: #a99f8d; }
+.rel-sub { color: #6f6154; font-size: 14.5px; }
+.nightMode .rel-sub { color: #b3a892; }
 body.dense1 .card { font-size: 17px; }
-body.dense1 .front { font-size: 29px; }
-body.dense1 .rline, body.dense1 .meaning { font-size: 18px; }
-body.dense1 .rel-front { font-size: 18px; }
+body.dense1 .front { font-size: 28px; }
+body.dense1 .rline, body.dense1 .meaning { font-size: 17px; }
+body.dense1 .ex-text { font-size: 17.5px; }
+body.dense1 .rel-front { font-size: 17px; }
 body.dense2 .card { font-size: 15.5px; line-height: 1.55; }
-body.dense2 .front { font-size: 25px; }
-body.dense2 .rline, body.dense2 .meaning { font-size: 16.5px; }
-body.dense2 .rel-front { font-size: 16.5px; }
-body.dense2 .tr, body.dense2 .rel-sub { font-size: 14.5px; }
+body.dense2 .front { font-size: 24px; }
+body.dense2 .rline, body.dense2 .meaning { font-size: 16px; }
+body.dense2 .ex-text { font-size: 16px; }
+body.dense2 .rel-front { font-size: 16px; }
+body.dense2 .tr, body.dense2 .rel-sub { font-size: 13.5px; }
 """
 
 QFMT = """
@@ -146,11 +170,10 @@ QFMT = """
 
 AFMT = """
 {{FrontSide}}
-<hr class="sep">
 <div class="rline">{{Reading}}</div>
 <div class="meaning">{{Meaning}}</div>
 <div class="senses">{{SenseExamples}}</div>
-{{#Collocations}}<hr class="sep"><div class="cols">{{Collocations}}</div>{{/Collocations}}
+{{#Collocations}}<div class="cols">{{Collocations}}</div>{{/Collocations}}
 <script>
 (function () {
   // 内容多的卡自动调小字号，保证一屏看得完、重点不被淹没（按钮尺寸不变）。
@@ -222,6 +245,34 @@ def ex_filename(card_id, idx):
     return f"{card_id}_ex.mp3" if idx == 0 else f"{card_id}_ex{idx + 1}.mp3"
 
 
+CHIP_CLASS = {
+    "口语": "c-oral", "近義": "c-syn", "関連": "c-fam", "书面": "c-wri",
+    "慣用句": "c-idi", "敬语": "c-kei", "反対": "c-ant",
+}
+
+
+def usage_tags(card):
+    """Scene/register tags derived only from curated data (category and the
+    registers of this card's curated counterparts) - never invented
+    frequency claims."""
+    tags = []
+    if card["cat"] == "敬语":
+        tags.append("商务・正式")
+    elif card["cat"] == "IT":
+        tags.append("职场・IT")
+    regs = {p.get("register") for p in card.get("pairs", [])}
+    if "口语" in regs:
+        tags.append("书面・正式")
+    if regs & {"书面", "敬语"}:
+        tags.append("口语・日常")
+    seen, out = set(), []
+    for t in tags:
+        if t not in seen:
+            seen.add(t)
+            out.append(t)
+    return out[:3]
+
+
 def render_senses(card, media_set):
     stem = stem_of(card["front"])
     multi = len(card["senses"]) > 1
@@ -250,7 +301,12 @@ def render_senses(card, media_set):
             f'<div class="tr"><span class="tag">［訳］</span>{html.escape(s["example_zh"])}</div>'
             "</div>"
         )
-    return "".join(blocks)
+    utags = usage_tags(card)
+    head = ""
+    if utags:
+        head = ('<div class="utags">' + "".join(
+            f'<span class="utag">{html.escape(t)}</span>' for t in utags) + "</div>")
+    return head + "".join(blocks)
 
 
 def render_collocations(card, by_id, media_set):
@@ -267,7 +323,10 @@ def render_collocations(card, by_id, media_set):
             f'<div class="sec"><div class="sec-h">［搭］</div>'
             f'<ul class="col-list">{items}</ul></div>'
         )
-    rels = []
+    # Build pair rows first, then group rows that share one identical note
+    # (family / ladder explanations): the shared note is shown once as a
+    # group header instead of being repeated on every row.
+    rows = []
     for p in card.get("pairs", []):
         if "id" in p:
             other = by_id.get(p["id"])
@@ -283,17 +342,52 @@ def render_collocations(card, by_id, media_set):
             d_front, d_reading, d_meaning = (
                 p["front"], p["reading"], p["meaning"])
             audio = ""
-        sub = html.escape(d_meaning)
-        if p.get("note"):
-            sub += f"（{html.escape(p['note'])}）"
-        rels.append(
-            '<div class="rel"><div class="rel-head">'
-            f'<span class="chip">{html.escape(p["register"])}</span>'
-            f'<a class="Dict WordLink rel-front" data-w="{html.escape(d_front, quote=True)}" target="_blank" rel="noopener">{html.escape(d_front)}'
-            f'<span class="rel-read">（{html.escape(d_reading)}）</span></a>'
-            f'<a class="GptL" data-w="{html.escape(d_front, quote=True)}" target="_blank" rel="noopener"></a>{audio}</div>'
-            f'<div class="rel-sub">{sub}</div></div>'
+        rows.append({
+            "reg": p["register"], "front": d_front, "reading": d_reading,
+            "meaning": d_meaning, "note": p.get("note") or "", "audio": audio,
+        })
+
+    def head_html(r, with_chip=True):
+        chip = ""
+        if with_chip:
+            cls = CHIP_CLASS.get(r["reg"], "c-syn")
+            chip = f'<span class="chip {cls}">{html.escape(r["reg"])}</span>'
+        return (
+            '<div class="rel-head">' + chip
+            + f'<a class="Dict WordLink rel-front" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener">{html.escape(r["front"])}'
+            f'<span class="rel-read">（{html.escape(r["reading"])}）</span></a>'
+            f'<a class="GptL" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener"></a>{r["audio"]}</div>'
         )
+
+    from collections import Counter, OrderedDict
+    counts = Counter(r["note"] for r in rows if r["note"])
+    singles = [r for r in rows if not r["note"] or counts[r["note"]] < 2]
+    groups = OrderedDict()
+    for r in rows:
+        if r["note"] and counts[r["note"]] >= 2:
+            groups.setdefault(r["note"], []).append(r)
+
+    rels = []
+    for r in singles:
+        sub = html.escape(r["meaning"])
+        if r["note"]:
+            sub += f'（{html.escape(r["note"])}）'
+        rels.append(
+            '<div class="rel">' + head_html(r)
+            + f'<div class="rel-sub">{sub}</div></div>'
+        )
+    for note, members in groups.items():
+        reg = members[0]["reg"]
+        cls = CHIP_CLASS.get(reg, "c-syn")
+        rels.append(
+            f'<div class="rel-gh"><span class="chip {cls}">{html.escape(reg)}</span>'
+            f'<span class="gh-note">{html.escape(note)}</span></div>'
+        )
+        for r in members:
+            rels.append(
+                '<div class="rel g">' + head_html(r, with_chip=False)
+                + f'<div class="rel-sub">{html.escape(r["meaning"])}</div></div>'
+            )
     if rels:
         parts.append(
             '<div class="sec"><div class="sec-h">［関］</div>' + "".join(rels) + "</div>"
