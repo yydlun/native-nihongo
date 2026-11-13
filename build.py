@@ -46,8 +46,13 @@ _TKZ = Tokenizer()
 CSS = """
 .card { font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
   font-size: 19px; color: #2a251d; background: #faf7f0; line-height: 1.65;
-  text-align: left; }
-.nightMode .card, .card.nightMode { background: #20201e; color: #e9e4d8; }
+  text-align: left;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+.nightMode .card, .card.nightMode { background: #20201e; color: #eae5dc; }
+.nightMode .hl { color: #e58a48; }
+.nightMode .num { color: #e58a48; }
+.nightMode ruby rt { color: #a99f90; }
+.nightMode .tag { color: #a99f90; }
 .qhead { display: flex; align-items: center; justify-content: space-between;
   margin: 6px 2px 2px; }
 .front { font-size: 32px; font-weight: 600; text-align: center; flex: 1; }
@@ -80,17 +85,17 @@ button.replay-button svg, button.replay-button img {
 .rel-audio button.replay-button img {
   width: 22px !important; height: 22px !important; }
 .rline { font-size: 16px; color: #6b6151; letter-spacing: .02em; margin-top: 2px; }
-.nightMode .rline { color: #b6ab97; }
+.nightMode .rline { color: #a99f90; }
 .meaning { font-size: 24px; font-weight: 700; margin: 12px 0 0; }
 .senses { margin-top: 16px; }
 .utags { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 14px; }
 .utag { font-size: 12px; color: #6f6154; border: 1px solid #d8cbb2;
   border-radius: 8px; padding: 0 7px; line-height: 1.7; }
-.nightMode .utag { color: #b3a892; border-color: #55503f; }
-.sense { margin: 0 0 18px; border-left: 3px solid #ead9bd; padding-left: 9px; }
+.nightMode .utag { color: #a99f90; border-color: #55503f; }
+.sense { margin: 0 0 20px; border-left: 3px solid #ead9bd; padding-left: 9px; }
 .nightMode .sense { border-left-color: #57492e; }
-.gloss { font-weight: 500; font-size: 16.5px; color: #5d5342; margin-bottom: 2px; }
-.nightMode .gloss { color: #c9bda6; }
+.gloss { font-weight: 600; font-size: 19px; color: #5d5342; margin-bottom: 4px; }
+.nightMode .gloss { color: #beb4a4; }
 .num { color: #c96a1e; font-weight: 700; margin-right: 4px; }
 .ex { display: flex; align-items: flex-start; gap: 6px; }
 .tag { color: #b39b78; font-size: 11.5px; white-space: nowrap; padding-top: 7px; }
@@ -100,18 +105,18 @@ button.replay-button svg, button.replay-button img {
 .hl { color: #e07b39; font-weight: 700; }
 ruby rt { font-size: 11px; color: #8a7f6a; }
 .tr { color: #6f6154; font-size: 16px; margin-top: 8px; }
-.nightMode .tr { color: #b3a892; }
+.nightMode .tr { color: #beb4a4; }
 .sec { margin: 19px 0 0; }
 .sec-h { color: #a08b6d; font-size: 14px; margin-bottom: 6px; }
 .col-list { margin: 0; padding: 0; list-style: none; color: #33529e; font-size: 17px; }
-.nightMode .col-list { color: #9db8ec; }
+.nightMode .col-list { color: #72bceb; }
 .col-list li { margin: 4px 0; }
 .col-list li::before { content: "・"; color: #c98a3d; }
 .rel { margin: 12px 0; }
 .rel.g { margin: 8px 0; }
 .rel-gh { display: flex; align-items: center; gap: 6px; margin: 14px 0 4px; }
 .gh-note { font-size: 13.5px; color: #6f6154; }
-.nightMode .gh-note { color: #b3a892; }
+.nightMode .gh-note { color: #a99f90; }
 .rel-head { display: flex; align-items: center; gap: 6px; }
 .chip { font-size: 12px; color: #ffffff; background: #c98a3d; border-radius: 8px;
   padding: 1px 7px; white-space: nowrap; }
@@ -123,23 +128,25 @@ ruby rt { font-size: 11px; color: #8a7f6a; }
 .c-kei { background: #8a6d3b; }
 .c-ant { background: #b3402e; }
 .rel-front { font-size: 19px; font-weight: 700; color: #1f6f5c; }
-.nightMode .rel-front { color: #7fd1b9; }
+.nightMode .rel-front { color: #73bba5; }
 .rel-read { color: #7a6f5e; font-size: 15px; }
-.nightMode .rel-read { color: #b6ab97; }
+.nightMode .rel-read { color: #a99f90; }
 .rel-audio { margin-left: auto; flex: none; }
 .rel-sub { color: #4f463a; font-size: 16px; }
-.nightMode .rel-sub { color: #c4bba6; }
+.nightMode .rel-sub { color: #beb4a4; }
 body.dense1 .card { font-size: 17px; }
 body.dense1 .front { font-size: 28px; }
 body.dense1 .rline { font-size: 15px; }
 body.dense1 .meaning { font-size: 21px; }
 body.dense1 .ex-text { font-size: 17px; }
+body.dense1 .gloss { font-size: 17.5px; }
 body.dense1 .rel-front { font-size: 17.5px; }
 body.dense2 .card { font-size: 15.5px; line-height: 1.55; }
 body.dense2 .front { font-size: 24px; }
 body.dense2 .rline { font-size: 14.5px; }
 body.dense2 .meaning { font-size: 19px; }
 body.dense2 .ex-text { font-size: 16px; }
+body.dense2 .gloss { font-size: 16.5px; }
 body.dense2 .rel-front { font-size: 16.5px; }
 body.dense2 .tr, body.dense2 .rel-sub { font-size: 14.5px; }
 """
