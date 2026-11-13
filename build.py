@@ -52,11 +52,11 @@ CSS = """
 .front { font-size: 34px; font-weight: 600; text-align: center; flex: 1; }
 .tools { display: flex; align-items: center; gap: 4px; min-width: 76px; }
 .Search { font-size: 20px; text-decoration: none; width: 34px; text-align: center; }
-.Gpt { width: 27px; height: 27px; border-radius: 6px; background-color: #111111;
+.Gpt { width: 27px; height: 27px;
   background-image: url("data:image/png;base64,__GPT_ICON_B64__");
   background-size: 80% 80%; background-position: center; background-repeat: no-repeat; }
 .Dict { font-size: 15px; text-decoration: none; }
-.GptL { width: 19px; height: 19px; border-radius: 5px; background-color: #111111;
+.GptL { width: 19px; height: 19px;
   background-image: url("data:image/png;base64,__GPT_ICON_B64__");
   background-size: 80% 80%; background-position: center; background-repeat: no-repeat;
   display: inline-block; vertical-align: middle; }
@@ -253,7 +253,10 @@ def render_collocations(card, by_id, media_set):
     parts = []
     cols = [x for x in card["collocations"] if x.strip() != card["front"].strip()]
     if cols:
-        items = "".join(f"<li>{html.escape(x)}</li>" for x in cols)
+        items = "".join(
+            f"<li>{html.escape(x)} "
+            f'<a class="Dict" data-w="{html.escape(x.replace("〜", ""), quote=True)}">🔍</a></li>'
+            for x in cols)
         parts.append(
             f'<div class="sec"><div class="sec-h">［搭］</div>'
             f'<ul class="col-list">{items}</ul></div>'
