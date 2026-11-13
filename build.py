@@ -56,6 +56,7 @@ CSS = """
   background-image: url("data:image/png;base64,__GPT_ICON_B64__");
   background-size: 80% 80%; background-position: center; background-repeat: no-repeat; }
 .Dict { font-size: 15px; text-decoration: none; }
+.WordLink { color: inherit; text-decoration: none; border-bottom: 1px dotted #d97706; }
 .GptL { width: 19px; height: 19px;
   background-image: url("data:image/png;base64,__GPT_ICON_B64__");
   background-size: 80% 80%; background-position: center; background-repeat: no-repeat;
@@ -254,8 +255,10 @@ def render_collocations(card, by_id, media_set):
     cols = [x for x in card["collocations"] if x.strip() != card["front"].strip()]
     if cols:
         items = "".join(
-            f"<li>{html.escape(x)} "
-            f'<a class="Dict" data-w="{html.escape(x.replace("〜", ""), quote=True)}">🔍</a></li>'
+            f'<li><a class="Dict WordLink" data-w="{html.escape(x, quote=True)}" '
+            f'target="_blank" rel="noopener">{html.escape(x)}</a> '
+            f'<a class="GptL" data-w="{html.escape(x, quote=True)}" '
+            f'target="_blank" rel="noopener"></a></li>'
             for x in cols)
         parts.append(
             f'<div class="sec"><div class="sec-h">［搭］</div>'
@@ -283,9 +286,8 @@ def render_collocations(card, by_id, media_set):
         rels.append(
             '<div class="rel"><div class="rel-head">'
             f'<span class="chip">{html.escape(p["register"])}</span>'
-            f'<span class="rel-front">{html.escape(d_front)}</span>'
-            f'<span class="rel-read">（{html.escape(d_reading)}）</span>'
-            f'<a class="Dict" data-w="{html.escape(d_front, quote=True)}" target="_blank" rel="noopener">🔍</a>'
+            f'<a class="Dict WordLink rel-front" data-w="{html.escape(d_front, quote=True)}" target="_blank" rel="noopener">{html.escape(d_front)}'
+            f'<span class="rel-read">（{html.escape(d_reading)}）</span></a>'
             f'<a class="GptL" data-w="{html.escape(d_front, quote=True)}" target="_blank" rel="noopener"></a>{audio}</div>'
             f'<div class="rel-sub">{sub}</div></div>'
         )
