@@ -9,7 +9,13 @@
   on examples, the headword highlighted inside its example, per-example
   audio buttons, related words with their own audio, and a 🔍 that jumps
   to the MOJi dictionary - app scheme mojisho:// on mobile,
-  mojidict.com/searchText on the web).
+  mojidict.com/searchText on the web - plus a ChatGPT icon that asks about
+  the word; the icon image is bundled in media/ so it also shows offline).
+  v3 (same day, from the user's phone screenshots): everything left-aligned,
+  Anki's oversized native play buttons CSS-sized to a uniform 30px, the
+  duplicated meaning/gloss line removed on single-sense cards, furigana
+  segmentation switched from pykakasi to Janome (pykakasi merged particles
+  into one ruby block, e.g. 彼は口 read as one chunk).
 - Fields: Front / Reading / Meaning / SenseExamples / Collocations /
   FrontAudio / ExampleAudio. Category is stored as a tag.
 - Register/similarity links (cards.json "pairs", v2): each entry is either
@@ -26,58 +32,58 @@ import json
 import os
 
 import genanki
-import pykakasi
+from janome.tokenizer import Tokenizer
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MODEL_ID = 1738092451
 DECK_ID = 2048691735
 CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩"
-_KKS = pykakasi.kakasi()
+ICON_FILE = "chatgpt-icon.png"
+_TKZ = Tokenizer()
 
 CSS = """
 .card { font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
-  font-size: 19px; color: #2a251d; background: #faf7f0; line-height: 1.65; }
+  font-size: 19px; color: #2a251d; background: #faf7f0; line-height: 1.65;
+  text-align: left; }
 .nightMode .card, .card.nightMode { background: #20201e; color: #e9e4d8; }
 .qhead { display: flex; align-items: center; justify-content: space-between;
   margin: 10px 2px 4px; }
 .front { font-size: 34px; font-weight: 600; text-align: center; flex: 1; }
-.tools { display: flex; align-items: center; gap: 2px; min-width: 76px; }
-.Search { font-size: 20px; text-decoration: none; width: 36px; text-align: center; }
-.Gpt { width: 36px; text-align: center; text-decoration: none; }
-.Gpt img { width: 22px; height: 22px; vertical-align: middle; border-radius: 5px; }
-.faudio { width: 40px; text-align: center; }
-body.dense1 .card { font-size: 17px; }
-body.dense1 .front { font-size: 29px; }
-body.dense1 .rline, body.dense1 .meaning { font-size: 18px; }
-body.dense1 .rel-front { font-size: 18px; }
-body.dense1 .Gpt img { width: 19px; height: 19px; }
-body.dense1 .Search { font-size: 18px; }
-body.dense2 .card { font-size: 15.5px; line-height: 1.55; }
-body.dense2 .front { font-size: 25px; }
-body.dense2 .rline, body.dense2 .meaning { font-size: 16.5px; }
-body.dense2 .rel-front { font-size: 16.5px; }
-body.dense2 .tr, body.dense2 .rel-sub { font-size: 14.5px; }
-body.dense2 .Gpt img { width: 17px; height: 17px; }
-body.dense2 .Search { font-size: 16px; }
+.tools { display: flex; align-items: center; gap: 4px; min-width: 76px; }
+.Search { font-size: 20px; text-decoration: none; width: 34px; text-align: center; }
+.Gpt { width: 34px; text-align: center; text-decoration: none; }
+.Gpt img { width: 23px; height: 23px; vertical-align: middle; border-radius: 6px;
+  background: #111111; padding: 2px; box-sizing: border-box; }
+.faudio { width: 76px; text-align: right; }
+a.replaybutton, a.replay-button, button.replay-button {
+  display: inline-flex !important; align-items: center; justify-content: center;
+  width: 30px !important; height: 30px !important; vertical-align: middle; }
+a.replaybutton img, a.replay-button img, a.replay-button svg,
+button.replay-button svg, button.replay-button img {
+  width: 30px !important; height: 30px !important; }
 .sep { border: none; border-top: 1px solid #ddd3c0; margin: 12px 0; }
 .nightMode .sep { border-top-color: #444444; }
-.rline { font-size: 21px; color: #6b6151; }
+.rline { font-size: 20px; color: #6b6151; letter-spacing: .02em; }
 .nightMode .rline { color: #b6ab97; }
-.meaning { font-size: 20px; font-weight: 700; margin: 2px 0 4px; }
-.sense { margin: 10px 0 14px; }
+.meaning { font-size: 20px; font-weight: 700; margin: 2px 0 6px; }
+.sense { margin: 10px 0 14px; border-left: 3px solid #ead9bd; padding-left: 10px; }
+.nightMode .sense { border-left-color: #57492e; }
 .gloss { font-weight: 600; margin-bottom: 2px; }
 .num { color: #c96a1e; font-weight: 700; margin-right: 4px; }
 .ex { display: flex; align-items: flex-start; gap: 6px; }
 .tag { color: #a08b6d; font-size: 15px; white-space: nowrap; padding-top: 3px; }
 .ex-text { flex: 1; }
+.ex-audio { flex: none; }
 .hl { color: #e07b39; font-weight: 700; }
 ruby rt { font-size: 11px; color: #8a7f6a; }
 .tr { color: #7d7466; font-size: 17px; }
 .nightMode .tr { color: #a99f8d; }
-.sec { margin: 10px 0; }
-.sec-h { color: #a08b6d; font-size: 15px; margin-bottom: 2px; }
-.col-list { margin: 0; padding-left: 20px; color: #33529e; }
+.sec { margin: 12px 0; }
+.sec-h { color: #a08b6d; font-size: 15px; margin-bottom: 3px; }
+.col-list { margin: 0; padding: 0; list-style: none; color: #33529e; font-size: 17.5px; }
 .nightMode .col-list { color: #9db8ec; }
+.col-list li { margin: 2px 0; }
+.col-list li::before { content: "・"; color: #c98a3d; }
 .rel { margin: 7px 0; }
 .rel-head { display: flex; align-items: center; gap: 6px; }
 .chip { font-size: 12px; color: #ffffff; background: #c98a3d; border-radius: 8px;
@@ -86,16 +92,25 @@ ruby rt { font-size: 11px; color: #8a7f6a; }
 .nightMode .rel-front { color: #7fd1b9; }
 .rel-read { color: #6b6151; }
 .nightMode .rel-read { color: #b6ab97; }
-.rel-audio { margin-left: auto; }
+.rel-audio { margin-left: auto; flex: none; }
 .rel-sub { color: #7d7466; font-size: 16px; }
 .nightMode .rel-sub { color: #a99f8d; }
+body.dense1 .card { font-size: 17px; }
+body.dense1 .front { font-size: 29px; }
+body.dense1 .rline, body.dense1 .meaning { font-size: 18px; }
+body.dense1 .rel-front { font-size: 18px; }
+body.dense2 .card { font-size: 15.5px; line-height: 1.55; }
+body.dense2 .front { font-size: 25px; }
+body.dense2 .rline, body.dense2 .meaning { font-size: 16.5px; }
+body.dense2 .rel-front { font-size: 16.5px; }
+body.dense2 .tr, body.dense2 .rel-sub { font-size: 14.5px; }
 """
 
 QFMT = """
 <header class="qhead">
 <div class="tools">
 <a class="Search" target="_blank" rel="noopener" title="MOJi辞書">🔍</a>
-<a class="Gpt" target="_blank" rel="noopener" title="ChatGPT"><img src="https://chatgpt.com/favicon.ico" alt="ChatGPT"></a>
+<a class="Gpt" target="_blank" rel="noopener" title="ChatGPT"><img src="chatgpt-icon.png" alt="ChatGPT"></a>
 </div>
 <div class="front">{{Front}}</div>
 <div class="faudio">{{FrontAudio}}</div>
@@ -129,7 +144,7 @@ AFMT = """
 {{#Collocations}}<hr class="sep"><div class="cols">{{Collocations}}</div>{{/Collocations}}
 <script>
 (function () {
-  // 内容多的卡自动调小字号/图标，保证一屏看得完、重点不被淹没。
+  // 内容多的卡自动调小字号，保证一屏看得完、重点不被淹没（按钮尺寸不变）。
   var n = document.body.innerText.length;
   if (n > 1500) document.body.classList.add("dense2");
   else if (n > 850) document.body.classList.add("dense1");
@@ -142,6 +157,12 @@ def _has_kanji(s):
     return any("\u4e00" <= ch <= "\u9fff" for ch in s)
 
 
+def _to_hira(s):
+    return "".join(
+        chr(ord(ch) - 0x60) if "ァ" <= ch <= "ヶ" else ch for ch in s
+    )
+
+
 def stem_of(front):
     """Highlight stem: drop 〜 and trailing okurigana (用いる→用, 潰れる→潰)."""
     s = front.replace("〜", "").strip()
@@ -151,21 +172,23 @@ def stem_of(front):
 
 
 def furigana_html(text, stem):
-    """Segment with pykakasi, add <ruby> over kanji segments, and wrap the
-    first segment matching the headword stem in a highlight span."""
+    """Tokenize with Janome, add <ruby> over kanji tokens with a known
+    reading, and wrap the first token matching the headword stem in a
+    highlight span."""
     out = []
     highlighted = False
-    for seg in _KKS.convert(text):
-        orig, hira = seg["orig"], seg["hira"]
-        if orig != hira and _has_kanji(orig):
-            piece = f"<ruby>{html.escape(orig)}<rt>{html.escape(hira)}</rt></ruby>"
+    for tok in _TKZ.tokenize(text):
+        surf = tok.surface
+        reading = _to_hira(tok.reading) if tok.reading and tok.reading != "*" else None
+        if reading and reading != _to_hira(surf) and _has_kanji(surf):
+            piece = f"<ruby>{html.escape(surf)}<rt>{html.escape(reading)}</rt></ruby>"
         else:
-            piece = html.escape(orig)
+            piece = html.escape(surf)
         if (
             not highlighted
             and stem
             and _has_kanji(stem)
-            and (orig == stem or orig.startswith(stem))
+            and (surf == stem or surf.startswith(stem))
         ):
             piece = f'<span class="hl">{piece}</span>'
             highlighted = True
@@ -179,17 +202,28 @@ def ex_filename(card_id, idx):
 
 def render_senses(card, media_set):
     stem = stem_of(card["front"])
+    multi = len(card["senses"]) > 1
+    # On single-sense cards the standalone Meaning line already carries the
+    # gloss; repeating it as a ① line is pure duplication. Keep the gloss
+    # line only for multi-sense cards, or when Meaning is empty.
+    show_gloss = multi or not card["meaning"].strip()
     blocks = []
     for i, s in enumerate(card["senses"]):
-        num = CIRCLED[i] if i < len(CIRCLED) else f"{i + 1}."
+        gloss_html = ""
+        if show_gloss:
+            num = ""
+            if multi:
+                n = CIRCLED[i] if i < len(CIRCLED) else f"{i + 1}."
+                num = f'<span class="num">{n}</span>'
+            gloss_html = f'<div class="gloss">{num}{html.escape(s["gloss"])}</div>'
         audio = ""
         fname = ex_filename(card["id"], i)
         if fname in media_set:
             audio = f'<span class="ex-audio">[sound:{fname}]</span>'
         blocks.append(
             '<div class="sense">'
-            f'<div class="gloss"><span class="num">{num}</span>{html.escape(s["gloss"])}</div>'
-            f'<div class="ex"><span class="tag">［例］</span>'
+            + gloss_html
+            + f'<div class="ex"><span class="tag">［例］</span>'
             f'<span class="ex-text">{furigana_html(s["example"], stem)}</span>{audio}</div>'
             f'<div class="tr"><span class="tag">［訳］</span>{html.escape(s["example_zh"])}</div>'
             "</div>"
@@ -199,10 +233,9 @@ def render_senses(card, media_set):
 
 def render_collocations(card, by_id, media_set):
     parts = []
-    if card["collocations"]:
-        items = "".join(
-            f"<li>{html.escape(x)}</li>" for x in card["collocations"]
-        )
+    cols = [x for x in card["collocations"] if x.strip() != card["front"].strip()]
+    if cols:
+        items = "".join(f"<li>{html.escape(x)}</li>" for x in cols)
         parts.append(
             f'<div class="sec"><div class="sec-h">［搭］</div>'
             f'<ul class="col-list">{items}</ul></div>'
@@ -267,6 +300,8 @@ def main():
     deck = genanki.Deck(DECK_ID, "native-nihongo")
     by_id = {c["id"]: c for c in cards}
     media_files = []
+    if ICON_FILE in media_set:
+        media_files.append(os.path.join(media_dir, ICON_FILE))
     for c in cards:
         front_mp3 = f"{c['id']}_front.mp3"
         ex_mp3 = f"{c['id']}_ex.mp3"

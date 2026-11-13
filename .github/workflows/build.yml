@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install genanki pykakasi
+        run: pip install genanki janome
 
       - name: Build apkg
         run: python build.py

@@ -55,7 +55,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          pip install genanki pykakasi
+          pip install genanki janome
           python build.py
           NEXT=$(( $(gh release list --repo ${{ github.repository }} --limit 100 --json tagName --jq '[.[].tagName | select(startswith("r")) | ltrimstr("r") | tonumber] | max // 0') + 1 ))
           TAG="r${NEXT}"
