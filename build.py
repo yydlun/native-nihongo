@@ -5,11 +5,15 @@
   package into Anki updates existing cards in place and keeps review history.
 - Fields: Front / Reading / Meaning / SenseExamples / Collocations /
   FrontAudio / ExampleAudio. Category is stored as a tag.
-- Register pairs (cards.json "pairs": [{id, register}]): the counterpart's
-  front/reading/meaning is rendered into the Collocations field as a
-  "🔗 <register>：..." line, and both notes get a shared tag "pair_<min id>"
-  so the pair can be pulled up together in Anki's browser. The model itself
-  is unchanged, so re-imports stay in place.
+- Register/similarity links (cards.json "pairs", v2): each entry is either
+  {"id", "register", "note"?} pointing at another card, or a text entry
+  {"front", "reading", "meaning", "register", "note"?} for counterparts too
+  basic to deserve their own card. register is 口语／书面／敬语／類似; a card
+  may carry several entries (multi-way groups). Display fields render into
+  the Collocations field as a "🔗 <register>：..." line with the difference
+  note appended in parentheses; id entries also get a shared tag
+  "pair_<min id>" so linked cards can be pulled up together in Anki's
+  browser. The model itself is unchanged, so re-imports stay in place.
 """
 import html
 import json
@@ -95,15 +99,22 @@ def main():
         pair_lines = []
         pair_tags = []
         for p in c.get("pairs", []):
-            other = by_id.get(p["id"])
-            if other is None:
-                continue
+            if "id" in p:
+                other = by_id.get(p["id"])
+                if other is None:
+                    continue
+                d_front, d_reading, d_meaning = (
+                    other["front"], other["reading"], other["meaning"])
+                pair_tags.append(f"pair_{min(c['id'], p['id'])}")
+            else:
+                d_front, d_reading, d_meaning = (
+                    p["front"], p["reading"], p["meaning"])
+            line = f"{p['register']}：{d_front}（{d_reading}）｜{d_meaning}"
+            if p.get("note"):
+                line += f"（{p['note']}）"
             pair_lines.append(
-                '<span style="color:#a05a00">🔗 '
-                + html.escape(f"{p['register']}：{other['front']}（{other['reading']}）｜{other['meaning']}")
-                + "</span>"
+                '<span style="color:#a05a00">🔗 ' + html.escape(line) + "</span>"
             )
-            pair_tags.append(f"pair_{min(c['id'], p['id'])}")
         collocations_field = "<br>".join(
             [html.escape(x) for x in c["collocations"]] + pair_lines
         )
