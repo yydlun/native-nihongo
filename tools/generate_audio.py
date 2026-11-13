@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """用 Edge TTS 为 data/cards.json 的每张卡生成发音音频（断点续跑）。
 
-- media/<id>_front.mp3：读 front 原文
+- media/<id>_front.mp3：读 reading（假名读音），不用 front 原文——
+  裸汉字会被 TTS 误读（如 用いる 读成 よういる，正解 もちいる）；
+  例句有上下文一般读得对，front 是孤词，必须按读音生成。
 - media/<id>_ex.mp3：读 senses[0].example（第一个义项的例句）
 已存在的非空文件会跳过，所以本地和 GitHub Actions 里都可以反复运行，
 只补缺失的。音色 ja-JP-NanamiNeural。
@@ -20,7 +22,8 @@ def load_items():
     cards = json.load(open(os.path.join(BASE, "data", "cards.json"), encoding="utf-8"))
     items = []
     for c in cards:
-        items.append((c["id"], c["front"], f"{c['id']}_front.mp3"))
+        front_text = (c.get("reading") or c["front"]).strip()
+        items.append((c["id"], front_text, f"{c['id']}_front.mp3"))
         items.append((c["id"], c["senses"][0]["example"], f"{c['id']}_ex.mp3"))
     return items
 
