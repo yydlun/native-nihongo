@@ -51,7 +51,7 @@ CSS = """
   margin: 10px 2px 4px; }
 .front { font-size: 34px; font-weight: 600; text-align: center; flex: 1; }
 .tools { display: flex; align-items: center; gap: 4px; min-width: 76px; }
-.Search { font-size: 20px; text-decoration: none; width: 34px; text-align: center; }
+.Search { font-size: 16px; text-decoration: none; width: 27px; text-align: center; }
 .Gpt { width: 27px; height: 27px;
   background-image: url("data:image/png;base64,__GPT_ICON_B64__");
   background-size: 80% 80%; background-position: center; background-repeat: no-repeat; }
