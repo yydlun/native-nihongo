@@ -52,9 +52,14 @@ CSS = """
 .front { font-size: 34px; font-weight: 600; text-align: center; flex: 1; }
 .tools { display: flex; align-items: center; gap: 4px; min-width: 76px; }
 .Search { font-size: 20px; text-decoration: none; width: 34px; text-align: center; }
-.Gpt { width: 34px; text-align: center; text-decoration: none; }
-.Gpt img { width: 23px; height: 23px; vertical-align: middle; border-radius: 6px;
-  background: #111111; padding: 2px; box-sizing: border-box; }
+.Gpt { width: 27px; height: 27px; border-radius: 6px; background-color: #111111;
+  background-image: url("data:image/png;base64,__GPT_ICON_B64__");
+  background-size: 80% 80%; background-position: center; background-repeat: no-repeat; }
+.Dict { font-size: 15px; text-decoration: none; }
+.GptL { width: 19px; height: 19px; border-radius: 5px; background-color: #111111;
+  background-image: url("data:image/png;base64,__GPT_ICON_B64__");
+  background-size: 80% 80%; background-position: center; background-repeat: no-repeat;
+  display: inline-block; vertical-align: middle; }
 .faudio { width: 76px; text-align: right; }
 a.replaybutton, a.replay-button, button.replay-button {
   display: inline-flex !important; align-items: center; justify-content: center;
@@ -110,28 +115,27 @@ body.dense2 .tr, body.dense2 .rel-sub { font-size: 14.5px; }
 QFMT = """
 <header class="qhead">
 <div class="tools">
-<a class="Search" target="_blank" rel="noopener" title="MOJi辞書">🔍</a>
-<a class="Gpt" target="_blank" rel="noopener" title="ChatGPT"><img src="data:image/png;base64,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" alt="ChatGPT"></a>
+<a class="Search" data-w="{{text:Front}}" target="_blank" rel="noopener" title="MOJi辞書">🔍</a>
+<a class="Gpt" data-w="{{text:Front}}" target="_blank" rel="noopener" title="ChatGPT"></a>
 </div>
 <div class="front">{{Front}}</div>
 <div class="faudio">{{FrontAudio}}</div>
 </header>
 <script>
 (function () {
-  var w = "{{text:Front}}".replace(/〜/g, "").trim();
-  if (!w) return;
   var mobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
-  var s = document.querySelector(".Search");
-  if (s) {
-    s.href = mobile
-      ? "mojisho://?search=" + encodeURIComponent(w)
-      : "https://www.mojidict.com/searchText/" + encodeURIComponent(w);
-  }
-  var g = document.querySelector(".Gpt");
-  if (g) {
-    var q = "日语「" + w + "」是什么意思？请给出读音、中文释义、常用搭配和3个日常例句，并说明它在口语和书面语里的区别。";
-    g.href = "https://chatgpt.com/?q=" + encodeURIComponent(q);
-  }
+  document.querySelectorAll("[data-w]").forEach(function (a) {
+    var w = (a.getAttribute("data-w") || "").replace(/〜/g, "").trim();
+    if (!w) return;
+    if (a.classList.contains("Gpt") || a.classList.contains("GptL")) {
+      var q = "日语「" + w + "」是什么意思？请给出读音、中文释义、常用搭配和3个日常例句，并说明它在口语和书面语里的区别。";
+      a.href = "https://chatgpt.com/?q=" + encodeURIComponent(q);
+    } else {
+      a.href = mobile
+        ? "mojisho://?search=" + encodeURIComponent(w)
+        : "https://www.mojidict.com/searchText/" + encodeURIComponent(w);
+    }
+  });
 })();
 </script>
 """
@@ -152,6 +156,19 @@ AFMT = """
 })();
 </script>
 """
+
+
+def _css_with_icon(media_dir):
+    """Inline the ChatGPT icon into the model CSS (stored once, always
+    available; a media-file icon never synced to the phone because no note
+    field references it)."""
+    import base64
+
+    path = os.path.join(media_dir, ICON_FILE)
+    b64 = ""
+    if os.path.exists(path):
+        b64 = base64.b64encode(open(path, "rb").read()).decode()
+    return CSS.replace("__GPT_ICON_B64__", b64)
 
 
 def _has_kanji(s):
@@ -264,7 +281,9 @@ def render_collocations(card, by_id, media_set):
             '<div class="rel"><div class="rel-head">'
             f'<span class="chip">{html.escape(p["register"])}</span>'
             f'<span class="rel-front">{html.escape(d_front)}</span>'
-            f'<span class="rel-read">（{html.escape(d_reading)}）</span>{audio}</div>'
+            f'<span class="rel-read">（{html.escape(d_reading)}）</span>'
+            f'<a class="Dict" data-w="{html.escape(d_front, quote=True)}" target="_blank" rel="noopener">🔍</a>'
+            f'<a class="GptL" data-w="{html.escape(d_front, quote=True)}" target="_blank" rel="noopener"></a>{audio}</div>'
             f'<div class="rel-sub">{sub}</div></div>'
         )
     if rels:
@@ -295,7 +314,7 @@ def main():
             {"name": "ExampleAudio"},
         ],
         templates=[{"name": "Card 1", "qfmt": QFMT, "afmt": AFMT}],
-        css=CSS,
+        css=_css_with_icon(media_dir),
     )
 
     deck = genanki.Deck(DECK_ID, "native-nihongo")
