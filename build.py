@@ -31,6 +31,7 @@
 import html
 import json
 import os
+import re
 
 import genanki
 from janome.tokenizer import Tokenizer
@@ -262,12 +263,17 @@ def _ruby_html(surf, reading):
 
 def furigana_html(text, stem):
     """Tokenize with Janome; furigana only over kanji (see _ruby_html), the
-    headword stem highlighted, and tokens glued into bunsetsu-like units
-    (particles/auxiliaries/punctuation stick to the preceding token) that
-    are wrapped in nowrap spans - line breaks then fall only between
-    units, so a verb ending like た。 is never orphaned on its own line."""
-    units = []
-    cur = ""
+    headword highlighted in orange, and tokens glued into bunsetsu-like
+    units (particles/auxiliaries/punctuation stick to the preceding token)
+    wrapped in nowrap spans - line breaks fall only between units, so a
+    verb ending like た。 is never orphaned on its own line.
+
+    Highlighting: first try token level (a token whose surface starts with
+    the headword stem). Phrase headwords span several tokens, so if no
+    token matches, fall back to unit level: highlight, in order, the units
+    containing each kanji run of the stem (or the kana stem itself)."""
+    units = []  # {"html": str, "surf": str}
+    cur = None
     glue_next = False
     highlighted = False
     for tok in _TKZ.tokenize(text):
@@ -290,17 +296,30 @@ def furigana_html(text, stem):
             or pos2 == "接尾"
             or surf in "。、！？"
         )
-        if cur and (glue or glue_next):
-            cur += piece
-        elif cur:
+        if cur is not None and (glue or glue_next):
+            cur["html"] += piece
+            cur["surf"] += surf
+        elif cur is not None:
             units.append(cur)
-            cur = piece
+            cur = {"html": piece, "surf": surf}
         else:
-            cur = piece
+            cur = {"html": piece, "surf": surf}
         glue_next = pos1 == "接頭詞"
-    if cur:
+    if cur is not None:
         units.append(cur)
-    return "".join(f'<span class="u">{u}</span>' for u in units)
+
+    if not highlighted and stem and units:
+        parts = re.findall(r"[一-鿿㐀-䶿]+", stem)
+        if not parts and stem:
+            parts = [stem]
+        start = 0
+        for part in parts:
+            for i in range(start, len(units)):
+                if part in units[i]["surf"]:
+                    units[i]["html"] = f'<span class="hl">{units[i]["html"]}</span>'
+                    start = i
+                    break
+    return "".join(f'<span class="u">{u["html"]}</span>' for u in units)
 
 
 def ex_filename(card_id, idx):
@@ -377,7 +396,7 @@ def render_collocations(card, by_id, media_set):
     if cols:
         items = "".join(
             f'<li><a class="Dict WordLink" data-w="{html.escape(x, quote=True)}" '
-            f'target="_blank" rel="noopener">{html.escape(x)}</a>'
+            f'target="_blank" rel="noopener">{furigana_html(x, "")}</a>'
             f'<a class="GptL" data-w="{html.escape(x, quote=True)}" '
             f'target="_blank" rel="noopener"></a></li>'
             for x in cols)
