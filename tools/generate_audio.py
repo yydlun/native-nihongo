@@ -4,7 +4,9 @@
 - media/<id>_front.mp3：读 reading（假名读音），不用 front 原文——
   裸汉字会被 TTS 误读（如 用いる 读成 よういる，正解 もちいる）；
   例句有上下文一般读得对，front 是孤词，必须按读音生成。
-- media/<id>_ex.mp3：读 senses[0].example（第一个义项的例句）
+- media/<id>_ex.mp3：读 senses[0].example（第一个义项的例句）；
+  media/<id>_ex<i+1>.mp3：读 senses[i].example（第 i+1 个义项的例句，
+  卡面改版后每个义项的例句都有自己的发音按钮）
 已存在的非空文件会跳过，所以本地和 GitHub Actions 里都可以反复运行，
 只补缺失的。音色 ja-JP-NanamiNeural。
 """
@@ -24,7 +26,9 @@ def load_items():
     for c in cards:
         front_text = (c.get("reading") or c["front"]).strip()
         items.append((c["id"], front_text, f"{c['id']}_front.mp3"))
-        items.append((c["id"], c["senses"][0]["example"], f"{c['id']}_ex.mp3"))
+        for i, s in enumerate(c["senses"]):
+            fname = f"{c['id']}_ex.mp3" if i == 0 else f"{c['id']}_ex{i + 1}.mp3"
+            items.append((c["id"], s["example"], fname))
     return items
 
 
