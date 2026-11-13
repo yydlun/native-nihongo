@@ -72,11 +72,24 @@ CSS = """
 .night_mode .Gpt, .night_mode .GptL { filter: invert(1); }
 .faudio { width: 76px; text-align: right; }
 a.replaybutton, a.replay-button, button.replay-button {
-  display: inline-flex !important; align-items: center; justify-content: center;
-  width: 30px !important; height: 30px !important; vertical-align: middle; }
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%; border: none;
+  background-color: rgba(90, 75, 50, 0.08);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20fill%3D%27%23c2540a%27%20d%3D%27M3%209.2v5.6c0%20.6.4%201%201%201h3.4L12%2019.6c.5.4%201.3.1%201.3-.6V5c0-.7-.8-1-1.3-.6L7.4%208.2H4c-.6%200-1%20.4-1%201z%27%2F%3E%3Cpath%20fill%3D%27none%27%20stroke%3D%27%23c2540a%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20d%3D%27M15.6%209.2a4%204%200%200%201%200%205.6%27%2F%3E%3Cpath%20fill%3D%27none%27%20stroke%3D%27%23c2540a%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20d%3D%27M18%206.8a7.4%207.4%200%200%201%200%2010.4%27%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat; background-position: center; background-size: 58% 58%;
+  box-shadow: 0 2px 8px rgba(90, 75, 50, 0.12); vertical-align: middle; }
+.nightMode a.replaybutton, .nightMode a.replay-button,
+.night-mode a.replay-button, .night_mode a.replay-button {
+  background-color: rgba(255, 255, 255, 0.10);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20fill%3D%27%23f5ede0%27%20d%3D%27M3%209.2v5.6c0%20.6.4%201%201%201h3.4L12%2019.6c.5.4%201.3.1%201.3-.6V5c0-.7-.8-1-1.3-.6L7.4%208.2H4c-.6%200-1%20.4-1%201z%27%2F%3E%3Cpath%20fill%3D%27none%27%20stroke%3D%27%23f5ede0%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20d%3D%27M15.6%209.2a4%204%200%200%201%200%205.6%27%2F%3E%3Cpath%20fill%3D%27none%27%20stroke%3D%27%23f5ede0%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20d%3D%27M18%206.8a7.4%207.4%200%200%201%200%2010.4%27%2F%3E%3C%2Fsvg%3E");
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
+a.replaybutton:active, a.replay-button:active { transform: scale(0.93); }
 a.replaybutton img, a.replay-button img, a.replay-button svg,
 button.replay-button svg, button.replay-button img {
-  width: 30px !important; height: 30px !important; }
+  display: none; }
+.rel-audio a.replaybutton, .rel-audio a.replay-button,
+.rel-audio button.replay-button {
+  width: 22px; height: 22px; }
 .rel-audio a.replaybutton, .rel-audio a.replay-button,
 .rel-audio button.replay-button {
   width: 22px !important; height: 22px !important; }
