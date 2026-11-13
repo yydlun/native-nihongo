@@ -99,7 +99,7 @@ button.replay-button svg, button.replay-button img {
 .num { color: #c96a1e; font-weight: 700; margin-right: 4px; }
 .ex { display: flex; align-items: flex-start; gap: 6px; }
 .tag { color: #b39b78; font-size: 11.5px; white-space: nowrap; padding-top: 7px; }
-.ex-text { flex: 1; font-size: 18.5px; line-height: 1.6; }
+.ex-text { flex: 1; font-size: 18.5px; line-height: 1.6; line-break: strict; }
 .u { white-space: nowrap; }
 .ex-audio { flex: none; }
 .hl { color: #e07b39; font-weight: 700; }
