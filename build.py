@@ -220,9 +220,15 @@ def _to_hira(s):
 
 
 def stem_of(front):
-    """Highlight stem: drop 〜 and trailing okurigana (用いる→用, 潰れる→潰)."""
+    """Highlight stem: drop 〜 and trailing okurigana (用いる→用, 潰れる→潰).
+    Pure-kana words have no kanji to stop at: strip only ONE trailing kana
+    (the inflection point), so てしまう→てしま, かねる→かね, ちゃう→ちゃ -
+    stripping further would degenerate the needle to a single kana."""
     s = front.replace("〜", "").strip()
-    while len(s) > 1 and "ぁ" <= s[-1] <= "ん":
+    if any(_has_kanji(ch) for ch in s):
+        while len(s) > 1 and "ぁ" <= s[-1] <= "ん":
+            s = s[:-1]
+    elif len(s) >= 3 and "ぁ" <= s[-1] <= "ん":
         s = s[:-1]
     return s
 
@@ -268,18 +274,19 @@ def _ruby_html(surf, reading):
     return "".join(parts)
 
 
-def furigana_html(text, stem):
+def furigana_html(text, stem, stem_kana=None):
     """Tokenize with Janome; furigana only over kanji (see _ruby_html), the
     headword highlighted in orange, and tokens glued into bunsetsu-like
     units (particles/auxiliaries/punctuation stick to the preceding token)
     wrapped in nowrap spans - line breaks fall only between units, so a
     verb ending like た。 is never orphaned on its own line.
 
-    Highlighting: first try token level (a token whose surface starts with
-    the headword stem). Phrase headwords span several tokens, so if no
-    token matches, fall back to unit level: highlight, in order, the units
-    containing each kanji run of the stem (or the kana stem itself)."""
-    units = []  # {"html": str, "surf": str}
+    Highlighting, in order: (1) a token whose surface starts with the
+    headword stem; (2) the stem found in the concatenated unit surfaces
+    (phrase headwords split across units); (3) each kanji run of the stem
+    located in order; (4) the stem's kana reading found in the concatenated
+    unit readings (examples that write the word in kana only)."""
+    units = []  # {"html": str, "surf": str, "read": str}
     cur = None
     glue_next = False
     highlighted = False
@@ -303,29 +310,96 @@ def furigana_html(text, stem):
             or pos2 == "接尾"
             or surf in "。、！？"
         )
+        tread = reading if reading else _to_hira(surf)
         if cur is not None and (glue or glue_next):
             cur["html"] += piece
             cur["surf"] += surf
+            cur["read"] += tread
         elif cur is not None:
             units.append(cur)
-            cur = {"html": piece, "surf": surf}
+            cur = {"html": piece, "surf": surf, "read": tread}
         else:
-            cur = {"html": piece, "surf": surf}
+            cur = {"html": piece, "surf": surf, "read": tread}
         glue_next = pos1 == "接頭詞"
     if cur is not None:
         units.append(cur)
 
+    def mark_span(strings, needle):
+        """Highlight every unit intersecting the first occurrence of needle
+        in the concatenation of the given per-unit strings."""
+        if not needle or len(needle) < 2:
+            return False
+        idx = "".join(strings).find(needle)
+        if idx < 0:
+            return False
+        end = idx + len(needle)
+        pos = 0
+        for u, s in zip(units, strings):
+            nxt = pos + len(s)
+            if nxt > idx and pos < end:
+                u["html"] = f'<span class="hl">{u["html"]}</span>'
+            pos = nxt
+        return True
+
     if not highlighted and stem and units:
-        parts = re.findall(r"[一-鿿㐀-䶿]+", stem)
-        if not parts and stem:
-            parts = [stem]
-        start = 0
-        for part in parts:
-            for i in range(start, len(units)):
-                if part in units[i]["surf"]:
-                    units[i]["html"] = f'<span class="hl">{units[i]["html"]}</span>'
-                    start = i
+        surfs = [u["surf"] for u in units]
+        reads = [u["read"] for u in units]
+        done = mark_span(surfs, stem)
+        if not done and stem.endswith("す") and len(stem) >= 4:
+            # 〜する verbs: the example may use the bare noun (うっかりした)
+            done = mark_span(surfs, stem[:-1])
+        if not done:
+            # combo headwords joined by ・or /: match each component,
+            # minus a trailing をする/する
+            def _core(comp):
+                for suf in ("をする", "する"):
+                    if comp.endswith(suf) and len(comp) > len(suf) + 1:
+                        return comp[:-len(suf)]
+                return comp
+            for comp in re.split(r"[・/／]", stem):
+                if len(_core(comp)) >= 2 and mark_span(surfs, _core(comp)):
+                    done = True
+            if stem_kana:
+                for comp in re.split(r"[・/／]", stem_kana):
+                    if len(_core(comp)) >= 2 and mark_span(reads, _core(comp)):
+                        done = True
+        if not done:
+            # punctuation-insensitive pass (fronts like ありえない、マジか?!
+            # vs fullwidth ？！ in examples)
+            punct = r"[、,。．？！?!・…]"
+            cs = [re.sub(punct, "", s) for s in surfs]
+            cr = [re.sub(punct, "", s) for s in reads]
+            done = mark_span(cs, re.sub(punct, "", stem))
+            if not done and stem_kana:
+                done = mark_span(cr, re.sub(punct, "", stem_kana))
+        if not done:
+            # kanji skeleton: consume the stem's kanji in order, marking
+            # each unit that contains the next expected kanji (the example
+            # may split the word with particles: 調子悪い -> 調子が/悪い)
+            kanji = [ch for ch in stem if _has_kanji(ch)]
+            ki = 0
+            for u in units:
+                if ki >= len(kanji):
                     break
+                j = ki
+                while j < len(kanji) and kanji[j] in u["surf"]:
+                    j += 1
+                if j > ki:
+                    u["html"] = f'<span class="hl">{u["html"]}</span>'
+                    done = True
+                    ki = j
+        if not done:
+            # last resort: progressively shorter suffixes of the stem
+            # (surface, then reading), at least 3 chars - sentence-pattern
+            # headwords (これはガチです) appear in examples without their
+            # leading part
+            for needle_src, strings in ((stem, surfs), (stem_kana, reads)):
+                if done or not needle_src or len(needle_src) <= 4:
+                    continue
+                for cut in range(1, len(needle_src) - 2):
+                    if mark_span(strings, needle_src[cut:]):
+                        done = True
+                        break
     return "".join(f'<span class="u">{u["html"]}</span>' for u in units)
 
 
@@ -363,6 +437,7 @@ def usage_tags(card):
 
 def render_senses(card, media_set):
     stem = stem_of(card["front"])
+    stem_kana = stem_of(card["reading"])
     multi = len(card["senses"]) > 1
     # On single-sense cards the standalone Meaning line already carries the
     # gloss; repeating it as a ① line is pure duplication. Keep the gloss
@@ -385,7 +460,7 @@ def render_senses(card, media_set):
             '<div class="sense">'
             + gloss_html
             + f'<div class="ex"><span class="tag">［例］</span>'
-            f'<span class="ex-text">{furigana_html(s["example"], stem)}</span>{audio}</div>'
+            f'<span class="ex-text">{furigana_html(s["example"], stem, stem_kana)}</span>{audio}</div>'
             f'<div class="tr"><span class="tag">［訳］</span>{html.escape(s["example_zh"])}</div>'
             "</div>"
         )
@@ -445,8 +520,7 @@ def render_collocations(card, by_id, media_set):
             chip = f'<span class="chip {cls}">{html.escape(r["reg"])}</span>'
         return (
             '<div class="rel-head">' + chip
-            + f'<a class="Dict WordLink rel-front" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener">{html.escape(r["front"])}'
-            f'<span class="rel-read">（{html.escape(r["reading"])}）</span></a>'
+            + f'<a class="Dict WordLink rel-front" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener">{_ruby_html(r["front"], _to_hira(r["reading"]))}</a>'
             f'<a class="GptL" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener"></a>{r["audio"]}</div>'
         )
 
