@@ -5,6 +5,11 @@
   package into Anki updates existing cards in place and keeps review history.
 - Fields: Front / Reading / Meaning / SenseExamples / Collocations /
   FrontAudio / ExampleAudio. Category is stored as a tag.
+- Register pairs (cards.json "pairs": [{id, register}]): the counterpart's
+  front/reading/meaning is rendered into the Collocations field as a
+  "🔗 <register>：..." line, and both notes get a shared tag "pair_<min id>"
+  so the pair can be pulled up together in Anki's browser. The model itself
+  is unchanged, so re-imports stay in place.
 """
 import html
 import json
@@ -72,6 +77,7 @@ def main():
     )
 
     deck = genanki.Deck(DECK_ID, "native-nihongo")
+    by_id = {c["id"]: c for c in cards}
     media_files = []
     for c in cards:
         front_mp3 = f"{c['id']}_front.mp3"
@@ -86,6 +92,21 @@ def main():
         if os.path.exists(p) and os.path.getsize(p) > 0:
             ex_audio = f"[sound:{ex_mp3}]"
             media_files.append(p)
+        pair_lines = []
+        pair_tags = []
+        for p in c.get("pairs", []):
+            other = by_id.get(p["id"])
+            if other is None:
+                continue
+            pair_lines.append(
+                '<span style="color:#a05a00">🔗 '
+                + html.escape(f"{p['register']}：{other['front']}（{other['reading']}）｜{other['meaning']}")
+                + "</span>"
+            )
+            pair_tags.append(f"pair_{min(c['id'], p['id'])}")
+        collocations_field = "<br>".join(
+            [html.escape(x) for x in c["collocations"]] + pair_lines
+        )
         note = genanki.Note(
             model=model,
             fields=[
@@ -93,11 +114,11 @@ def main():
                 c["reading"],
                 c["meaning"],
                 render_senses(c["senses"]),
-                "<br>".join(html.escape(x) for x in c["collocations"]),
+                collocations_field,
                 front_audio,
                 ex_audio,
             ],
-            tags=[c["cat"]],
+            tags=[c["cat"]] + sorted(set(pair_tags)),
             guid=f"nn-{c['id']}",
         )
         deck.add_note(note)

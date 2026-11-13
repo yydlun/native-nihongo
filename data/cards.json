@@ -39031,7 +39031,13 @@
    "お礼を申し上げる",
    "お詫びを申し上げる"
   ],
-  "cat": "動詞搭配"
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2725,
+    "register": "口语"
+   }
+  ]
  },
  {
   "id": 2164,
@@ -47966,7 +47972,13 @@
    "広く用いられている",
    "用いる方法"
   ],
-  "cat": "地道表达"
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2689,
+    "register": "口语"
+   }
+  ]
  },
  {
   "id": 2633,
@@ -48989,5 +49001,1734 @@
    "洗濯物を取り込む"
   ],
   "cat": "動詞搭配"
+ },
+ {
+  "id": 2689,
+  "front": "使う",
+  "reading": "つかう",
+  "meaning": "用、使用（日常）",
+  "senses": [
+   {
+    "gloss": "用、使用（日常）",
+    "example": "このアプリ、毎日使ってる。",
+    "example_zh": "这个 App 我每天都在用。"
+   }
+  ],
+  "collocations": [
+   "〜を使う"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2632,
+    "register": "书面"
+   },
+   {
+    "id": 2690,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2690,
+  "front": "利用する",
+  "reading": "りようする",
+  "meaning": "利用、使用（书面、正式）",
+  "senses": [
+   {
+    "gloss": "利用、使用（书面、正式）",
+    "example": "バスを利用して通学している。",
+    "example_zh": "坐公交上学。"
+   }
+  ],
+  "collocations": [
+   "〜を利用する",
+   "交通機関を利用する"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2689,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2691,
+  "front": "購入する",
+  "reading": "こうにゅうする",
+  "meaning": "购买（书面）",
+  "senses": [
+   {
+    "gloss": "购买（书面）",
+    "example": "オンラインでチケットを購入した。",
+    "example_zh": "在网上买了票。"
+   }
+  ],
+  "collocations": [
+   "〜を購入する"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2692,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2692,
+  "front": "買う",
+  "reading": "かう",
+  "meaning": "买（日常）",
+  "senses": [
+   {
+    "gloss": "买（日常）",
+    "example": "駅で傘を買った。",
+    "example_zh": "在车站买了把伞。"
+   }
+  ],
+  "collocations": [
+   "〜を買う"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2691,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2693,
+  "front": "返却する",
+  "reading": "へんきゃくする",
+  "meaning": "归还（书面，图书馆・租赁常用）",
+  "senses": [
+   {
+    "gloss": "归还（书面，图书馆・租赁常用）",
+    "example": "本は来週までに返却してください。",
+    "example_zh": "书请在下周前归还。"
+   }
+  ],
+  "collocations": [
+   "〜を返却する",
+   "返却期限"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2694,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2694,
+  "front": "返す",
+  "reading": "かえす",
+  "meaning": "还（日常）",
+  "senses": [
+   {
+    "gloss": "还（日常）",
+    "example": "借りた本、明日返すね。",
+    "example_zh": "借的书明天还你。"
+   }
+  ],
+  "collocations": [
+   "〜を返す"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2693,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2695,
+  "front": "帰宅する",
+  "reading": "きたくする",
+  "meaning": "回家、到家（书面）",
+  "senses": [
+   {
+    "gloss": "回家、到家（书面）",
+    "example": "午後10時に帰宅した。",
+    "example_zh": "晚上 10 点到家。"
+   }
+  ],
+  "collocations": [
+   "帰宅する",
+   "帰宅途中"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2696,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2696,
+  "front": "家に帰る",
+  "reading": "いえにかえる",
+  "meaning": "回家（日常）",
+  "senses": [
+   {
+    "gloss": "回家（日常）",
+    "example": "今日は早く家に帰りたい。",
+    "example_zh": "今天想早点回家。"
+   }
+  ],
+  "collocations": [
+   "家に帰る"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2695,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2697,
+  "front": "外出する",
+  "reading": "がいしゅつする",
+  "meaning": "外出（书面）",
+  "senses": [
+   {
+    "gloss": "外出（书面）",
+    "example": "週末はあまり外出しない。",
+    "example_zh": "周末不太出门。"
+   }
+  ],
+  "collocations": [
+   "外出する",
+   "外出先"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2698,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2698,
+  "front": "出かける",
+  "reading": "でかける",
+  "meaning": "出门、出去（日常）",
+  "senses": [
+   {
+    "gloss": "出门、出去（日常）",
+    "example": "ちょっとコンビニに出かけてくる。",
+    "example_zh": "去趟便利店就来。"
+   }
+  ],
+  "collocations": [
+   "出かける",
+   "出かけ先"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2697,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2699,
+  "front": "入浴する",
+  "reading": "にゅうよくする",
+  "meaning": "洗澡、泡澡（书面）",
+  "senses": [
+   {
+    "gloss": "洗澡、泡澡（书面）",
+    "example": "就寝前に入浴する習慣がある。",
+    "example_zh": "有睡前洗澡的习惯。"
+   }
+  ],
+  "collocations": [
+   "入浴する"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2700,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2700,
+  "front": "お風呂に入る",
+  "reading": "おふろにはいる",
+  "meaning": "洗澡、泡澡（日常）",
+  "senses": [
+   {
+    "gloss": "洗澡、泡澡（日常）",
+    "example": "帰ったらすぐお風呂に入る。",
+    "example_zh": "一回来就先洗澡。"
+   }
+  ],
+  "collocations": [
+   "お風呂に入る"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2699,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2701,
+  "front": "就寝する",
+  "reading": "しゅうしんする",
+  "meaning": "就寝、睡觉（书面）",
+  "senses": [
+   {
+    "gloss": "就寝、睡觉（书面）",
+    "example": "毎晩12時前に就寝している。",
+    "example_zh": "每晚 12 点前睡觉。"
+   }
+  ],
+  "collocations": [
+   "就寝する"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2702,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2702,
+  "front": "寝る",
+  "reading": "ねる",
+  "meaning": "睡觉（日常）",
+  "senses": [
+   {
+    "gloss": "睡觉（日常）",
+    "example": "もう眠いから寝る。",
+    "example_zh": "困了，我睡了。"
+   }
+  ],
+  "collocations": [
+   "寝る",
+   "早く寝る"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2701,
+    "register": "书面"
+   },
+   {
+    "id": 2724,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2703,
+  "front": "起床する",
+  "reading": "きしょうする",
+  "meaning": "起床（书面）",
+  "senses": [
+   {
+    "gloss": "起床（书面）",
+    "example": "平日は6時に起床する。",
+    "example_zh": "工作日 6 点起床。"
+   }
+  ],
+  "collocations": [
+   "起床する"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2704,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2704,
+  "front": "起きる",
+  "reading": "おきる",
+  "meaning": "起床、起来（日常）",
+  "senses": [
+   {
+    "gloss": "起床、起来（日常）",
+    "example": "明日は早く起きなきゃ。",
+    "example_zh": "明天得早起。"
+   }
+  ],
+  "collocations": [
+   "起きる",
+   "朝起きる"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2703,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2705,
+  "front": "喫煙する",
+  "reading": "きつえんする",
+  "meaning": "吸烟（书面，告示用语）",
+  "senses": [
+   {
+    "gloss": "吸烟（书面，告示用语）",
+    "example": "ここでは喫煙できません。",
+    "example_zh": "这里禁止吸烟。"
+   }
+  ],
+  "collocations": [
+   "喫煙する",
+   "喫煙所"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2706,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2706,
+  "front": "タバコを吸う",
+  "reading": "たばこをすう",
+  "meaning": "抽烟（日常）",
+  "senses": [
+   {
+    "gloss": "抽烟（日常）",
+    "example": "外でタバコを吸ってくる。",
+    "example_zh": "去外面抽根烟。"
+   }
+  ],
+  "collocations": [
+   "タバコを吸う"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2705,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2707,
+  "front": "乗車する",
+  "reading": "じょうしゃする",
+  "meaning": "上车、乘车（书面，车站用语）",
+  "senses": [
+   {
+    "gloss": "上车、乘车（书面，车站用语）",
+    "example": "次の駅で乗車する客が多い。",
+    "example_zh": "下一站上车的人很多。"
+   }
+  ],
+  "collocations": [
+   "乗車する",
+   "ご乗車の際は"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2708,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2708,
+  "front": "電車に乗る",
+  "reading": "でんしゃにのる",
+  "meaning": "坐电车（日常）",
+  "senses": [
+   {
+    "gloss": "坐电车（日常）",
+    "example": "毎朝、電車に乗って学校に行く。",
+    "example_zh": "每天早上坐电车去学校。"
+   }
+  ],
+  "collocations": [
+   "電車に乗る",
+   "バスに乗る"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2707,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2709,
+  "front": "実施する",
+  "reading": "じっしする",
+  "meaning": "实施、开展（书面，工作常用）",
+  "senses": [
+   {
+    "gloss": "实施、开展（书面，工作常用）",
+    "example": "来月から新しい制度を実施する。",
+    "example_zh": "下个月起实行新制度。"
+   }
+  ],
+  "collocations": [
+   "〜を実施する"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2710,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2710,
+  "front": "やる",
+  "reading": "やる",
+  "meaning": "做、干（日常口语）",
+  "senses": [
+   {
+    "gloss": "做、干（日常口语）",
+    "example": "宿題、もうやった？",
+    "example_zh": "作业做了吗？"
+   }
+  ],
+  "collocations": [
+   "〜をやる"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2709,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2711,
+  "front": "検討する",
+  "reading": "けんとうする",
+  "meaning": "研究、考虑（书面，工作常用）",
+  "senses": [
+   {
+    "gloss": "研究、考虑（书面，工作常用）",
+    "example": "ご意見を踏まえて検討します。",
+    "example_zh": "会结合您的意见研究一下。"
+   }
+  ],
+  "collocations": [
+   "〜を検討する",
+   "検討中"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2712,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2712,
+  "front": "考える",
+  "reading": "かんがえる",
+  "meaning": "想、考虑（日常）",
+  "senses": [
+   {
+    "gloss": "想、考虑（日常）",
+    "example": "将来のことをよく考える。",
+    "example_zh": "经常想将来的事。"
+   }
+  ],
+  "collocations": [
+   "〜を考える"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2711,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2713,
+  "front": "おっしゃる",
+  "reading": "おっしゃる",
+  "meaning": "「言う」的尊敬语：说",
+  "senses": [
+   {
+    "gloss": "「言う」的尊敬语：说",
+    "example": "先生がおっしゃった通りです。",
+    "example_zh": "正如老师所说。"
+   }
+  ],
+  "collocations": [
+   "おっしゃる",
+   "おっしゃる通り"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2725,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2714,
+  "front": "ご覧になる",
+  "reading": "ごらんになる",
+  "meaning": "「見る」的尊敬语：看",
+  "senses": [
+   {
+    "gloss": "「見る」的尊敬语：看",
+    "example": "資料をご覧になりましたか。",
+    "example_zh": "资料您看了吗？"
+   }
+  ],
+  "collocations": [
+   "ご覧になる",
+   "ご覧ください"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2726,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2715,
+  "front": "なさる",
+  "reading": "なさる",
+  "meaning": "「する」的尊敬语：做",
+  "senses": [
+   {
+    "gloss": "「する」的尊敬语：做",
+    "example": "どうなさるつもりですか。",
+    "example_zh": "您打算怎么办？"
+   }
+  ],
+  "collocations": [
+   "なさる",
+   "ご心配なさる"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2727,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2716,
+  "front": "召し上がる",
+  "reading": "めしあがる",
+  "meaning": "「食べる・飲む」的尊敬语：吃、喝",
+  "senses": [
+   {
+    "gloss": "「食べる・飲む」的尊敬语：吃、喝",
+    "example": "どうぞ召し上がってください。",
+    "example_zh": "请用。"
+   }
+  ],
+  "collocations": [
+   "召し上がる"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2728,
+    "register": "口语"
+   },
+   {
+    "id": 2729,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2717,
+  "front": "いらっしゃる",
+  "reading": "いらっしゃる",
+  "meaning": "「いる・来る・行く」的尊敬语：在、来、去",
+  "senses": [
+   {
+    "gloss": "「いる・来る・行く」的尊敬语：在、来、去",
+    "example": "先生は今、教室にいらっしゃいます。",
+    "example_zh": "老师现在在教室。"
+   }
+  ],
+  "collocations": [
+   "いらっしゃる"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2730,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2718,
+  "front": "ご存じ",
+  "reading": "ごぞんじ",
+  "meaning": "「知っている」的尊敬语：知道",
+  "senses": [
+   {
+    "gloss": "「知っている」的尊敬语：知道",
+    "example": "この辺りのことはよくご存じですね。",
+    "example_zh": "您很了解这一带呢。"
+   }
+  ],
+  "collocations": [
+   "ご存じ",
+   "ご存じですか"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2731,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2719,
+  "front": "拝見する",
+  "reading": "はいけんする",
+  "meaning": "「見る」的谦让语：（我）看",
+  "senses": [
+   {
+    "gloss": "「見る」的谦让语：（我）看",
+    "example": "資料を拝見しました。",
+    "example_zh": "资料我看过了。"
+   }
+  ],
+  "collocations": [
+   "拝見する"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2726,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2720,
+  "front": "いただく",
+  "reading": "いただく",
+  "meaning": "「もらう」的谦让语：得到、收下",
+  "senses": [
+   {
+    "gloss": "「もらう」的谦让语：得到、收下",
+    "example": "先生に本をいただいた。",
+    "example_zh": "老师送了我一本书。"
+   }
+  ],
+  "collocations": [
+   "いただく",
+   "いただきます"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2732,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2721,
+  "front": "うかがう",
+  "reading": "うかがう",
+  "meaning": "「聞く・行く」的谦让语：请教、拜访",
+  "senses": [
+   {
+    "gloss": "「聞く・行く」的谦让语：请教、拜访",
+    "example": "先生に進路のことをうかがった。",
+    "example_zh": "向老师请教了升学的事。"
+   }
+  ],
+  "collocations": [
+   "うかがう",
+   "お話をうかがう"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2733,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2722,
+  "front": "参る",
+  "reading": "まいる",
+  "meaning": "「行く・来る」的谦让语：去、来",
+  "senses": [
+   {
+    "gloss": "「行く・来る」的谦让语：去、来",
+    "example": "明日、そちらに参ります。",
+    "example_zh": "明天我过去您那边。"
+   }
+  ],
+  "collocations": [
+   "参る",
+   "参ります"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2734,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2723,
+  "front": "くださる",
+  "reading": "くださる",
+  "meaning": "「くれる」的尊敬语：（您）给我们",
+  "senses": [
+   {
+    "gloss": "「くれる」的尊敬语：（您）给我们",
+    "example": "先生が本をくださいました。",
+    "example_zh": "老师给了我一本书。"
+   }
+  ],
+  "collocations": [
+   "くださる"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2735,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2724,
+  "front": "お休みになる",
+  "reading": "おやすみになる",
+  "meaning": "「寝る」的尊敬语：就寝",
+  "senses": [
+   {
+    "gloss": "「寝る」的尊敬语：就寝",
+    "example": "おじいちゃんはもうお休みになりました。",
+    "example_zh": "爷爷已经睡下了。"
+   }
+  ],
+  "collocations": [
+   "お休みになる"
+  ],
+  "cat": "敬語",
+  "pairs": [
+   {
+    "id": 2702,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2725,
+  "front": "言う",
+  "reading": "いう",
+  "meaning": "说（日常普通形）",
+  "senses": [
+   {
+    "gloss": "说（日常普通形）",
+    "example": "彼は何も言わなかった。",
+    "example_zh": "他什么都没说。"
+   }
+  ],
+  "collocations": [
+   "〜と言う"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2713,
+    "register": "敬语"
+   },
+   {
+    "id": 2163,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2726,
+  "front": "見る",
+  "reading": "みる",
+  "meaning": "看（日常普通形）",
+  "senses": [
+   {
+    "gloss": "看（日常普通形）",
+    "example": "昨夜、映画を見た。",
+    "example_zh": "昨晚看了电影。"
+   }
+  ],
+  "collocations": [
+   "〜を見る"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2714,
+    "register": "敬语"
+   },
+   {
+    "id": 2719,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2727,
+  "front": "する",
+  "reading": "する",
+  "meaning": "做（日常普通形）",
+  "senses": [
+   {
+    "gloss": "做（日常普通形）",
+    "example": "週末は家で勉強する。",
+    "example_zh": "周末在家学习。"
+   }
+  ],
+  "collocations": [
+   "〜をする"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2715,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2728,
+  "front": "食べる",
+  "reading": "たべる",
+  "meaning": "吃（日常普通形）",
+  "senses": [
+   {
+    "gloss": "吃（日常普通形）",
+    "example": "朝ごはんを食べた？",
+    "example_zh": "早饭吃了吗？"
+   }
+  ],
+  "collocations": [
+   "〜を食べる"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2716,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2729,
+  "front": "飲む",
+  "reading": "のむ",
+  "meaning": "喝（日常普通形）",
+  "senses": [
+   {
+    "gloss": "喝（日常普通形）",
+    "example": "水を飲みたい。",
+    "example_zh": "想喝水。"
+   }
+  ],
+  "collocations": [
+   "〜を飲む"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2716,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2730,
+  "front": "いる",
+  "reading": "いる",
+  "meaning": "在（人・动物，日常普通形）",
+  "senses": [
+   {
+    "gloss": "在（人・动物，日常普通形）",
+    "example": "彼は今、家にいる。",
+    "example_zh": "他现在在家。"
+   }
+  ],
+  "collocations": [
+   "〜にいる"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2717,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2731,
+  "front": "知っている",
+  "reading": "しっている",
+  "meaning": "知道（日常普通形）",
+  "senses": [
+   {
+    "gloss": "知道（日常普通形）",
+    "example": "その店、知ってるよ。",
+    "example_zh": "那家店我知道。"
+   }
+  ],
+  "collocations": [
+   "知っている",
+   "知ってる"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2718,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2732,
+  "front": "もらう",
+  "reading": "もらう",
+  "meaning": "得到、收到（日常普通形）",
+  "senses": [
+   {
+    "gloss": "得到、收到（日常普通形）",
+    "example": "友達に傘をもらった。",
+    "example_zh": "朋友给了我一把伞。"
+   }
+  ],
+  "collocations": [
+   "〜をもらう"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2720,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2733,
+  "front": "聞く",
+  "reading": "きく",
+  "meaning": "听、问（日常普通形）",
+  "senses": [
+   {
+    "gloss": "听、问（日常普通形）",
+    "example": "先生に聞いてみよう。",
+    "example_zh": "去问问老师吧。"
+   }
+  ],
+  "collocations": [
+   "〜を聞く"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2721,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2734,
+  "front": "行く",
+  "reading": "いく",
+  "meaning": "去（日常普通形）",
+  "senses": [
+   {
+    "gloss": "去（日常普通形）",
+    "example": "明日、学校に行く。",
+    "example_zh": "明天去学校。"
+   }
+  ],
+  "collocations": [
+   "〜に行く"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2722,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2735,
+  "front": "くれる",
+  "reading": "くれる",
+  "meaning": "给（我方）…（日常普通形）",
+  "senses": [
+   {
+    "gloss": "给（我方）…（日常普通形）",
+    "example": "友達が傘を貸してくれた。",
+    "example_zh": "朋友把伞借给了我。"
+   }
+  ],
+  "collocations": [
+   "〜てくれる"
+  ],
+  "cat": "動詞搭配",
+  "pairs": [
+   {
+    "id": 2723,
+    "register": "敬语"
+   }
+  ]
+ },
+ {
+  "id": 2736,
+  "front": "〜なければならない",
+  "reading": "〜なければならない",
+  "meaning": "必须…（书面、正式）",
+  "senses": [
+   {
+    "gloss": "必须…（书面、正式）",
+    "example": "明日までに提出しなければならない。",
+    "example_zh": "必须在明天之前提交。"
+   }
+  ],
+  "collocations": [
+   "〜なければならない",
+   "〜なければいけません"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2737,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2737,
+  "front": "〜なきゃ",
+  "reading": "〜なきゃ",
+  "meaning": "必须…（口语，「なきゃいけない」的省略）",
+  "senses": [
+   {
+    "gloss": "必须…（口语，「なきゃいけない」的省略）",
+    "example": "もう行かなきゃ。",
+    "example_zh": "得走了。"
+   }
+  ],
+  "collocations": [
+   "〜なきゃ",
+   "〜なきゃいけない"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2736,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2738,
+  "front": "〜てはいけない",
+  "reading": "〜てはいけない",
+  "meaning": "不可以…（书面、规则）",
+  "senses": [
+   {
+    "gloss": "不可以…（书面、规则）",
+    "example": "ここで写真を撮ってはいけない。",
+    "example_zh": "这里不可以拍照。"
+   }
+  ],
+  "collocations": [
+   "〜てはいけない"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2739,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2739,
+  "front": "〜ちゃいけない",
+  "reading": "〜ちゃいけない",
+  "meaning": "不可以…（口语）",
+  "senses": [
+   {
+    "gloss": "不可以…（口语）",
+    "example": "それ、食べちゃいけないよ。",
+    "example_zh": "那个不能吃哦。"
+   }
+  ],
+  "collocations": [
+   "〜ちゃいけない",
+   "〜ちゃダメ"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2738,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2740,
+  "front": "〜てしまう",
+  "reading": "〜てしまう",
+  "meaning": "…完了／不小心…了（全形）",
+  "senses": [
+   {
+    "gloss": "…完了／不小心…了（全形）",
+    "example": "電車に傘を忘れてしまった。",
+    "example_zh": "把伞落在电车上了。"
+   }
+  ],
+  "collocations": [
+   "〜てしまう"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2741,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2741,
+  "front": "〜ちゃう",
+  "reading": "〜ちゃう",
+  "meaning": "…完了／不小心…了（口语缩略）",
+  "senses": [
+   {
+    "gloss": "…完了／不小心…了（口语缩略）",
+    "example": "やばい、寝坊しちゃった。",
+    "example_zh": "糟了，睡过头了。"
+   }
+  ],
+  "collocations": [
+   "〜ちゃう",
+   "〜じゃう"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2740,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2742,
+  "front": "〜ておく",
+  "reading": "〜ておく",
+  "meaning": "预先做好…（全形）",
+  "senses": [
+   {
+    "gloss": "预先做好…（全形）",
+    "example": "会議の前に資料を用意しておく。",
+    "example_zh": "开会前先把资料备好。"
+   }
+  ],
+  "collocations": [
+   "〜ておく"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2743,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2743,
+  "front": "〜とく",
+  "reading": "〜とく",
+  "meaning": "预先做好…（口语缩略）",
+  "senses": [
+   {
+    "gloss": "预先做好…（口语缩略）",
+    "example": "水、買っとくね。",
+    "example_zh": "水我先买好。"
+   }
+  ],
+  "collocations": [
+   "〜とく",
+   "〜どく"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2742,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2744,
+  "front": "〜わけではない",
+  "reading": "〜わけではない",
+  "meaning": "并不是…（书面）",
+  "senses": [
+   {
+    "gloss": "并不是…（书面）",
+    "example": "嫌いなわけではない。",
+    "example_zh": "并不是讨厌。"
+   }
+  ],
+  "collocations": [
+   "〜わけではない"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2745,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2745,
+  "front": "〜わけじゃない",
+  "reading": "〜わけじゃない",
+  "meaning": "并不是…（口语）",
+  "senses": [
+   {
+    "gloss": "并不是…（口语）",
+    "example": "行きたくないわけじゃないよ。",
+    "example_zh": "不是不想去啦。"
+   }
+  ],
+  "collocations": [
+   "〜わけじゃない"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2744,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2746,
+  "front": "〜ざるを得ない",
+  "reading": "〜ざるをえない",
+  "meaning": "不得不…（书面）",
+  "senses": [
+   {
+    "gloss": "不得不…（书面）",
+    "example": "今回は諦めざるを得ない。",
+    "example_zh": "这次不得不放弃了。"
+   }
+  ],
+  "collocations": [
+   "〜ざるを得ない"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2747,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2747,
+  "front": "〜しかない",
+  "reading": "〜しかない",
+  "meaning": "只能…、别无选择（日常）",
+  "senses": [
+   {
+    "gloss": "只能…、别无选择（日常）",
+    "example": "やるしかない。",
+    "example_zh": "只能硬着头皮干了。"
+   }
+  ],
+  "collocations": [
+   "〜しかない",
+   "やるしかない"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2746,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2748,
+  "front": "〜際に",
+  "reading": "〜さいに",
+  "meaning": "在…之时（书面）",
+  "senses": [
+   {
+    "gloss": "在…之时（书面）",
+    "example": "お帰りの際に、お声がけください。",
+    "example_zh": "您回去的时候请招呼一声。"
+   }
+  ],
+  "collocations": [
+   "〜際に",
+   "〜の際"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2749,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2749,
+  "front": "〜ときに",
+  "reading": "〜ときに",
+  "meaning": "在…的时候（日常）",
+  "senses": [
+   {
+    "gloss": "在…的时候（日常）",
+    "example": "帰るときに連絡して。",
+    "example_zh": "回去的时候联系我。"
+   }
+  ],
+  "collocations": [
+   "〜ときに",
+   "〜とき"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2748,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2750,
+  "front": "〜に関する",
+  "reading": "〜にかんする",
+  "meaning": "关于…（书面）",
+  "senses": [
+   {
+    "gloss": "关于…（书面）",
+    "example": "仕事に関する相談がある。",
+    "example_zh": "有个关于工作的事想商量。"
+   }
+  ],
+  "collocations": [
+   "〜に関する",
+   "〜に関して"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2751,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2751,
+  "front": "〜について",
+  "reading": "〜について",
+  "meaning": "关于…（日常最常用）",
+  "senses": [
+   {
+    "gloss": "关于…（日常最常用）",
+    "example": "その件について話そう。",
+    "example_zh": "聊聊那件事吧。"
+   }
+  ],
+  "collocations": [
+   "〜について"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2750,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2752,
+  "front": "〜にもかかわらず",
+  "reading": "〜にもかかわらず",
+  "meaning": "尽管…却…（书面）",
+  "senses": [
+   {
+    "gloss": "尽管…却…（书面）",
+    "example": "雨にもかかわらず、試合は行われた。",
+    "example_zh": "尽管下雨，比赛还是举行了。"
+   }
+  ],
+  "collocations": [
+   "〜にもかかわらず"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2753,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2753,
+  "front": "〜のに",
+  "reading": "〜のに",
+  "meaning": "明明…却…（日常，带意外・不满）",
+  "senses": [
+   {
+    "gloss": "明明…却…（日常，带意外・不满）",
+    "example": "早く寝たのに、まだ眠い。",
+    "example_zh": "明明早睡了，还是困。"
+   }
+  ],
+  "collocations": [
+   "〜のに"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2752,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2754,
+  "front": "したがって",
+  "reading": "したがって",
+  "meaning": "因此、所以（书面接续词）",
+  "senses": [
+   {
+    "gloss": "因此、所以（书面接续词）",
+    "example": "電車が遅れた。したがって、会議に遅刻した。",
+    "example_zh": "电车晚点，因此开会迟到了。"
+   }
+  ],
+  "collocations": [
+   "したがって"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2755,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2755,
+  "front": "だから",
+  "reading": "だから",
+  "meaning": "所以（日常接续词）",
+  "senses": [
+   {
+    "gloss": "所以（日常接续词）",
+    "example": "雨だから、傘を持って行こう。",
+    "example_zh": "下雨，所以带上伞吧。"
+   }
+  ],
+  "collocations": [
+   "だから"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2754,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2756,
+  "front": "しかし",
+  "reading": "しかし",
+  "meaning": "但是（书面接续词）",
+  "senses": [
+   {
+    "gloss": "但是（书面接续词）",
+    "example": "努力した。しかし、結果は出なかった。",
+    "example_zh": "努力了，但是没出结果。"
+   }
+  ],
+  "collocations": [
+   "しかし"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2757,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2757,
+  "front": "でも",
+  "reading": "でも",
+  "meaning": "但是（日常口语接续词）",
+  "senses": [
+   {
+    "gloss": "但是（日常口语接续词）",
+    "example": "高い。でも、買いたい。",
+    "example_zh": "贵是贵，但想买。"
+   }
+  ],
+  "collocations": [
+   "でも"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2756,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2758,
+  "front": "〜がたい",
+  "reading": "〜がたい",
+  "meaning": "难以…（书面，如「信じがたい」）",
+  "senses": [
+   {
+    "gloss": "难以…（书面，如「信じがたい」）",
+    "example": "信じがたい話だ。",
+    "example_zh": "难以置信的事。"
+   }
+  ],
+  "collocations": [
+   "〜がたい",
+   "信じがたい"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2759,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2759,
+  "front": "〜にくい",
+  "reading": "〜にくい",
+  "meaning": "难…、不容易…（日常）",
+  "senses": [
+   {
+    "gloss": "难…、不容易…（日常）",
+    "example": "この本、字が小さくて読みにくい。",
+    "example_zh": "这本书字太小，难读。"
+   }
+  ],
+  "collocations": [
+   "〜にくい",
+   "分かりにくい"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2758,
+    "register": "书面"
+   }
+  ]
+ },
+ {
+  "id": 2760,
+  "front": "〜ものだ",
+  "reading": "〜ものだ",
+  "meaning": "本来就是…（书面全形）",
+  "senses": [
+   {
+    "gloss": "本来就是…（书面全形）",
+    "example": "時間は大切にするものだ。",
+    "example_zh": "时间本就该珍惜。"
+   }
+  ],
+  "collocations": [
+   "〜ものだ"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2761,
+    "register": "口语"
+   }
+  ]
+ },
+ {
+  "id": 2761,
+  "front": "〜もんだ",
+  "reading": "〜もんだ",
+  "meaning": "本来就是…（口语）",
+  "senses": [
+   {
+    "gloss": "本来就是…（口语）",
+    "example": "若いときは失敗するもんだ。",
+    "example_zh": "年轻的时候谁不失败。"
+   }
+  ],
+  "collocations": [
+   "〜もんだ"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "id": 2760,
+    "register": "书面"
+   }
+  ]
  }
 ]
