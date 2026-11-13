@@ -55,7 +55,7 @@ CSS = """
 .nightMode .tag { color: #a99f90; }
 .qhead { display: flex; align-items: center; justify-content: space-between;
   margin: 6px 2px 2px; }
-.front { font-size: 32px; font-weight: 600; text-align: center; flex: 1; }
+.front { font-size: 32px; font-weight: 600; text-align: center; flex: 1; min-width: 0; }
 .tools { display: flex; align-items: center; gap: 4px; min-width: 76px; }
 .Search { font-size: 16px; text-decoration: none; width: 27px; text-align: center; }
 .Gpt { width: 27px; height: 27px;
@@ -91,6 +91,10 @@ button.replay-button svg, button.replay-button img {
 .utags { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 14px; }
 .utag { font-size: 12px; color: #6f6154; border: 1px solid #d8cbb2;
   border-radius: 8px; padding: 0 7px; line-height: 1.7; }
+.utag.reg { color: #ffffff; font-weight: 700; border-color: transparent;
+  padding: 0 9px; }
+.utag.reg.w { background: #4456a8; }
+.utag.reg.o { background: #2e7d32; }
 .nightMode .utag { color: #a99f90; border-color: #55503f; }
 .sense { margin: 0 0 20px; border-left: 3px solid #ead9bd; padding-left: 9px; }
 .nightMode .sense { border-left-color: #57492e; }
@@ -99,7 +103,7 @@ button.replay-button svg, button.replay-button img {
 .num { color: #c96a1e; font-weight: 700; margin-right: 4px; }
 .ex { display: flex; align-items: flex-start; gap: 6px; }
 .tag { color: #b39b78; font-size: 11.5px; white-space: nowrap; padding-top: 7px; }
-.ex-text { flex: 1; font-size: 18.5px; line-height: 1.6; line-break: strict; }
+.ex-text { flex: 1; min-width: 0; font-size: 18.5px; line-height: 1.6; line-break: strict; }
 .u { white-space: nowrap; }
 .ex-audio { flex: none; }
 .hl { color: #e07b39; font-weight: 700; }
@@ -115,7 +119,7 @@ ruby rt { font-size: 11px; color: #8a7f6a; }
 .rel { margin: 12px 0; }
 .rel.g { margin: 8px 0; }
 .rel-gh { display: flex; align-items: center; gap: 6px; margin: 14px 0 4px; }
-.gh-note { font-size: 13.5px; color: #6f6154; }
+.gh-note { font-size: 13.5px; color: #6f6154; flex: 1; min-width: 0; }
 .nightMode .gh-note { color: #a99f90; }
 .rel-head { display: flex; align-items: center; gap: 6px; }
 .chip { font-size: 12px; color: #ffffff; background: #c98a3d; border-radius: 8px;
@@ -127,7 +131,7 @@ ruby rt { font-size: 11px; color: #8a7f6a; }
 .c-idi { background: #d97706; }
 .c-kei { background: #8a6d3b; }
 .c-ant { background: #b3402e; }
-.rel-front { font-size: 19px; font-weight: 700; color: #1f6f5c; }
+.rel-front { font-size: 19px; font-weight: 700; color: #1f6f5c; min-width: 0; }
 .nightMode .rel-front { color: #73bba5; }
 .rel-read { color: #7a6f5e; font-size: 15px; }
 .nightMode .rel-read { color: #a99f90; }
@@ -420,29 +424,35 @@ CHIP_CLASS = {
 }
 
 
-def usage_tags(card):
+def usage_tags(card, incoming=None):
     """Scene/register tags derived only from curated data (category and the
     registers of this card's curated counterparts) - never invented
     frequency claims."""
-    tags = []
-    if card["cat"] == "敬语":
-        tags.append("商务・正式")
-    elif card["cat"] == "IT":
-        tags.append("职场・IT")
+    tags = []  # (text, extra css class)
     regs = {p.get("register") for p in card.get("pairs", [])}
-    if "口语" in regs:
-        tags.append("书面・正式")
-    if regs & {"书面", "敬语"}:
-        tags.append("口语・日常")
+    inc = (incoming or {}).get(card["id"], set())
+    # Register badges derive from BOTH directions of the curated links:
+    # an outgoing edge to a spoken counterpart (or an incoming edge that
+    # labels this card 书面/敬语) means this card is the written style;
+    # the mirror image means the spoken style. (Some pairs were curated
+    # with the register fully stated on one side only.)
+    if "口语" in regs or inc & {"书面", "敬语"}:
+        tags.append(("書", "reg w"))
+    if regs & {"书面", "敬语"} or "口语" in inc:
+        tags.append(("話", "reg o"))
+    if card["cat"] == "敬语":
+        tags.append(("商务・正式", ""))
+    elif card["cat"] == "IT":
+        tags.append(("职场・IT", ""))
     seen, out = set(), []
     for t in tags:
-        if t not in seen:
-            seen.add(t)
+        if t[0] not in seen:
+            seen.add(t[0])
             out.append(t)
     return out[:3]
 
 
-def render_senses(card, media_set):
+def render_senses(card, media_set, incoming=None):
     stem = stem_of(card["front"])
     stem_kana = stem_of(card["reading"])
     multi = len(card["senses"]) > 1
@@ -471,11 +481,12 @@ def render_senses(card, media_set):
             f'<div class="tr"><span class="tag">［訳］</span>{html.escape(s["example_zh"])}</div>'
             "</div>"
         )
-    utags = usage_tags(card)
+    utags = usage_tags(card, incoming)
     head = ""
     if utags:
         head = ('<div class="utags">' + "".join(
-            f'<span class="utag">{html.escape(t)}</span>' for t in utags) + "</div>")
+            f'<span class="utag {cls}">{html.escape(t)}</span>'
+            for t, cls in utags) + "</div>")
     return head + "".join(blocks)
 
 
@@ -598,6 +609,11 @@ def main():
 
     deck = genanki.Deck(DECK_ID, "native-nihongo")
     by_id = {c["id"]: c for c in cards}
+    incoming = {}
+    for c in cards:
+        for p in c.get("pairs", []):
+            if "id" in p:
+                incoming.setdefault(p["id"], set()).add(p["register"])
     media_files = []
     for c in cards:
         front_mp3 = f"{c['id']}_front.mp3"
@@ -621,7 +637,7 @@ def main():
                 c["front"],
                 c["reading"],
                 c["meaning"],
-                render_senses(c, media_set),
+                render_senses(c, media_set, incoming),
                 render_collocations(c, by_id, media_set),
                 front_audio,
                 ex_audio,
