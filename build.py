@@ -62,6 +62,8 @@ CSS = """
   background-size: 100% 100%; background-position: center; background-repeat: no-repeat;
   display: inline-block; vertical-align: middle; }
 .col-list .GptL { margin-left: 8px; }
+.nightMode .Gpt, .nightMode .GptL, .night-mode .Gpt, .night-mode .GptL,
+.night_mode .Gpt, .night_mode .GptL { filter: invert(1); }
 .faudio { width: 76px; text-align: right; }
 a.replaybutton, a.replay-button, button.replay-button {
   display: inline-flex !important; align-items: center; justify-content: center;
