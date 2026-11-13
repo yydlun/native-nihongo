@@ -78,36 +78,37 @@ button.replay-button svg, button.replay-button img {
 .rel-audio a.replay-button svg, .rel-audio button.replay-button svg,
 .rel-audio button.replay-button img {
   width: 22px !important; height: 22px !important; }
-.rline { font-size: 17px; color: #6b6151; letter-spacing: .02em; margin-top: 2px; }
+.rline { font-size: 16px; color: #6b6151; letter-spacing: .02em; margin-top: 2px; }
 .nightMode .rline { color: #b6ab97; }
-.meaning { font-size: 19px; font-weight: 700; margin: 12px 0 0; }
+.meaning { font-size: 24px; font-weight: 700; margin: 12px 0 0; }
 .senses { margin-top: 16px; }
 .utags { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 14px; }
 .utag { font-size: 12px; color: #6f6154; border: 1px solid #d8cbb2;
   border-radius: 8px; padding: 0 7px; line-height: 1.7; }
 .nightMode .utag { color: #b3a892; border-color: #55503f; }
-.sense { margin: 0 0 18px; border-left: 3px solid #ead9bd; padding-left: 12px; }
+.sense { margin: 0 0 18px; border-left: 3px solid #ead9bd; padding-left: 9px; }
 .nightMode .sense { border-left-color: #57492e; }
 .gloss { font-weight: 500; font-size: 16.5px; color: #5d5342; margin-bottom: 2px; }
 .nightMode .gloss { color: #c9bda6; }
 .num { color: #c96a1e; font-weight: 700; margin-right: 4px; }
 .ex { display: flex; align-items: flex-start; gap: 6px; }
-.tag { color: #b39b78; font-size: 13px; white-space: nowrap; padding-top: 6px; }
-.ex-text { flex: 1; font-size: 19px; line-height: 1.6; }
+.tag { color: #b39b78; font-size: 11.5px; white-space: nowrap; padding-top: 7px; }
+.ex-text { flex: 1; font-size: 18.5px; line-height: 1.6; }
+.u { white-space: nowrap; }
 .ex-audio { flex: none; }
 .hl { color: #e07b39; font-weight: 700; }
 ruby rt { font-size: 11px; color: #8a7f6a; }
-.tr { color: #6f6154; font-size: 14.5px; margin-top: 8px; }
+.tr { color: #6f6154; font-size: 16px; margin-top: 8px; }
 .nightMode .tr { color: #b3a892; }
-.sec { margin: 20px 0 0; }
+.sec { margin: 19px 0 0; }
 .sec-h { color: #a08b6d; font-size: 14px; margin-bottom: 6px; }
 .col-list { margin: 0; padding: 0; list-style: none; color: #33529e; font-size: 17px; }
 .nightMode .col-list { color: #9db8ec; }
 .col-list li { margin: 4px 0; }
 .col-list li::before { content: "・"; color: #c98a3d; }
-.rel { margin: 10px 0; }
-.rel.g { margin: 5px 0; }
-.rel-gh { display: flex; align-items: center; gap: 6px; margin: 12px 0 2px; }
+.rel { margin: 12px 0; }
+.rel.g { margin: 8px 0; }
+.rel-gh { display: flex; align-items: center; gap: 6px; margin: 14px 0 4px; }
 .gh-note { font-size: 13.5px; color: #6f6154; }
 .nightMode .gh-note { color: #b3a892; }
 .rel-head { display: flex; align-items: center; gap: 6px; }
@@ -120,24 +121,26 @@ ruby rt { font-size: 11px; color: #8a7f6a; }
 .c-idi { background: #d97706; }
 .c-kei { background: #8a6d3b; }
 .c-ant { background: #b3402e; }
-.rel-front { font-size: 18px; font-weight: 600; color: #1f6f5c; }
+.rel-front { font-size: 19px; font-weight: 700; color: #1f6f5c; }
 .nightMode .rel-front { color: #7fd1b9; }
-.rel-read { color: #6b6151; font-size: 15px; }
+.rel-read { color: #7a6f5e; font-size: 15px; }
 .nightMode .rel-read { color: #b6ab97; }
 .rel-audio { margin-left: auto; flex: none; }
-.rel-sub { color: #6f6154; font-size: 14.5px; }
-.nightMode .rel-sub { color: #b3a892; }
+.rel-sub { color: #4f463a; font-size: 16px; }
+.nightMode .rel-sub { color: #c4bba6; }
 body.dense1 .card { font-size: 17px; }
 body.dense1 .front { font-size: 28px; }
-body.dense1 .rline, body.dense1 .meaning { font-size: 17px; }
-body.dense1 .ex-text { font-size: 17.5px; }
-body.dense1 .rel-front { font-size: 17px; }
+body.dense1 .rline { font-size: 15px; }
+body.dense1 .meaning { font-size: 21px; }
+body.dense1 .ex-text { font-size: 17px; }
+body.dense1 .rel-front { font-size: 17.5px; }
 body.dense2 .card { font-size: 15.5px; line-height: 1.55; }
 body.dense2 .front { font-size: 24px; }
-body.dense2 .rline, body.dense2 .meaning { font-size: 16px; }
+body.dense2 .rline { font-size: 14.5px; }
+body.dense2 .meaning { font-size: 19px; }
 body.dense2 .ex-text { font-size: 16px; }
-body.dense2 .rel-front { font-size: 16px; }
-body.dense2 .tr, body.dense2 .rel-sub { font-size: 13.5px; }
+body.dense2 .rel-front { font-size: 16.5px; }
+body.dense2 .tr, body.dense2 .rel-sub { font-size: 14.5px; }
 """
 
 QFMT = """
@@ -216,19 +219,61 @@ def stem_of(front):
     return s
 
 
+def _ruby_html(surf, reading):
+    """Ruby placed ONLY over kanji runs: kana runs of the surface act as
+    anchors into the reading (okurigana alignment), so furigana never
+    spills onto kana. Falls back to whole-token ruby if alignment fails."""
+    if not reading or reading == _to_hira(surf) or not _has_kanji(surf):
+        return html.escape(surf)
+    runs = []
+    for ch in surf:
+        k = _has_kanji(ch)
+        if runs and runs[-1][0] == k:
+            runs[-1][1] += ch
+        else:
+            runs.append([k, ch])
+    parts, pos = [], 0
+    for i, (is_k, text) in enumerate(runs):
+        if not is_k:
+            if reading[pos:pos + len(text)] != text:
+                return f"<ruby>{html.escape(surf)}<rt>{html.escape(reading)}</rt></ruby>"
+            parts.append(html.escape(text))
+            pos += len(text)
+        else:
+            nxt = runs[i + 1][1] if i + 1 < len(runs) else None
+            if nxt is None:
+                r = reading[pos:]
+                if not r:
+                    return f"<ruby>{html.escape(surf)}<rt>{html.escape(reading)}</rt></ruby>"
+                parts.append(
+                    f"<ruby>{html.escape(text)}<rt>{html.escape(r)}</rt></ruby>")
+                pos = len(reading)
+            else:
+                j = reading.find(nxt, pos)
+                if j <= pos:
+                    return f"<ruby>{html.escape(surf)}<rt>{html.escape(reading)}</rt></ruby>"
+                parts.append(
+                    f"<ruby>{html.escape(text)}<rt>{html.escape(reading[pos:j])}</rt></ruby>")
+                pos = j
+    if pos != len(reading):
+        return f"<ruby>{html.escape(surf)}<rt>{html.escape(reading)}</rt></ruby>"
+    return "".join(parts)
+
+
 def furigana_html(text, stem):
-    """Tokenize with Janome, add <ruby> over kanji tokens with a known
-    reading, and wrap the first token matching the headword stem in a
-    highlight span."""
-    out = []
+    """Tokenize with Janome; furigana only over kanji (see _ruby_html), the
+    headword stem highlighted, and tokens glued into bunsetsu-like units
+    (particles/auxiliaries/punctuation stick to the preceding token) that
+    are wrapped in nowrap spans - line breaks then fall only between
+    units, so a verb ending like た。 is never orphaned on its own line."""
+    units = []
+    cur = ""
+    glue_next = False
     highlighted = False
     for tok in _TKZ.tokenize(text):
         surf = tok.surface
         reading = _to_hira(tok.reading) if tok.reading and tok.reading != "*" else None
-        if reading and reading != _to_hira(surf) and _has_kanji(surf):
-            piece = f"<ruby>{html.escape(surf)}<rt>{html.escape(reading)}</rt></ruby>"
-        else:
-            piece = html.escape(surf)
+        piece = _ruby_html(surf, reading) if reading else html.escape(surf)
         if (
             not highlighted
             and stem
@@ -237,8 +282,25 @@ def furigana_html(text, stem):
         ):
             piece = f'<span class="hl">{piece}</span>'
             highlighted = True
-        out.append(piece)
-    return "".join(out)
+        pos = (tok.part_of_speech or "").split(",")
+        pos1 = pos[0] if pos else ""
+        pos2 = pos[1] if len(pos) > 1 else ""
+        glue = (
+            pos1 in ("助詞", "助動詞", "記号")
+            or pos2 == "接尾"
+            or surf in "。、！？"
+        )
+        if cur and (glue or glue_next):
+            cur += piece
+        elif cur:
+            units.append(cur)
+            cur = piece
+        else:
+            cur = piece
+        glue_next = pos1 == "接頭詞"
+    if cur:
+        units.append(cur)
+    return "".join(f'<span class="u">{u}</span>' for u in units)
 
 
 def ex_filename(card_id, idx):
@@ -334,6 +396,7 @@ def render_collocations(card, by_id, media_set):
                 continue
             d_front, d_reading, d_meaning = (
                 other["front"], other["reading"], other["meaning"])
+            d_scene = other.get("scene") or ""
             audio = ""
             fname = f"{p['id']}_front.mp3"
             if fname in media_set:
@@ -341,10 +404,12 @@ def render_collocations(card, by_id, media_set):
         else:
             d_front, d_reading, d_meaning = (
                 p["front"], p["reading"], p["meaning"])
+            d_scene = ""
             audio = ""
         rows.append({
             "reg": p["register"], "front": d_front, "reading": d_reading,
-            "meaning": d_meaning, "note": p.get("note") or "", "audio": audio,
+            "meaning": d_meaning, "note": p.get("note") or "",
+            "scene": d_scene, "audio": audio,
         })
 
     def head_html(r, with_chip=True):
@@ -372,6 +437,8 @@ def render_collocations(card, by_id, media_set):
         sub = html.escape(r["meaning"])
         if r["note"]:
             sub += f'（{html.escape(r["note"])}）'
+        elif r.get("scene"):
+            sub += f'（{html.escape(r["scene"])}）'
         rels.append(
             '<div class="rel">' + head_html(r)
             + f'<div class="rel-sub">{sub}</div></div>'
@@ -384,9 +451,12 @@ def render_collocations(card, by_id, media_set):
             f'<span class="gh-note">{html.escape(note)}</span></div>'
         )
         for r in members:
+            gsub = html.escape(r["meaning"])
+            if r.get("scene"):
+                gsub += f'（{html.escape(r["scene"])}）'
             rels.append(
                 '<div class="rel g">' + head_html(r, with_chip=False)
-                + f'<div class="rel-sub">{html.escape(r["meaning"])}</div></div>'
+                + f'<div class="rel-sub">{gsub}</div></div>'
             )
     if rels:
         parts.append(
