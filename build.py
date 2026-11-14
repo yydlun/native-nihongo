@@ -116,7 +116,7 @@ button.replay-button svg, button.replay-button img {
 .nightMode .utag { color: #a99f90; border-color: #55503f; }
 .sense { margin: 0 0 20px; border-left: 3px solid #ead9bd; padding-left: 9px; }
 .nightMode .sense { border-left-color: #57492e; }
-.gloss { font-weight: 600; font-size: 17px; color: #5d5342; margin-bottom: 4px; }
+.gloss { font-weight: 600; font-size: 16px; color: #5d5342; margin-bottom: 4px; }
 .nightMode .gloss { color: #beb4a4; }
 .num { color: #c96a1e; font-weight: 700; margin-right: 4px; }
 .ex { display: flex; align-items: flex-start; gap: 6px; }
@@ -149,7 +149,7 @@ ruby rt { font-size: 11px; color: #8a7f6a; }
 .c-idi { background: #d97706; }
 .c-kei { background: #8a6d3b; }
 .c-ant { background: #b3402e; }
-.rel-front { font-size: 17px; font-weight: 600; color: #1f6f5c; min-width: 0; }
+.rel-front { font-size: 16px; font-weight: 500; color: #1f6f5c; min-width: 0; }
 .nightMode .rel-front { color: #73bba5; }
 .rel-read { color: #7a6f5e; font-size: 15px; }
 .nightMode .rel-read { color: #a99f90; }
@@ -161,15 +161,15 @@ body.dense1 .front { font-size: 28px; }
 body.dense1 .rline { font-size: 15px; }
 body.dense1 .meaning { font-size: 21px; }
 body.dense1 .ex-text { font-size: 17px; }
-body.dense1 .gloss { font-size: 15.5px; }
-body.dense1 .rel-front { font-size: 15.5px; }
+body.dense1 .gloss { font-size: 14.5px; }
+body.dense1 .rel-front { font-size: 14.5px; }
 body.dense2 .card { font-size: 15.5px; line-height: 1.55; }
 body.dense2 .front { font-size: 24px; }
 body.dense2 .rline { font-size: 14.5px; }
 body.dense2 .meaning { font-size: 19px; }
 body.dense2 .ex-text { font-size: 16px; }
-body.dense2 .gloss { font-size: 14.5px; }
-body.dense2 .rel-front { font-size: 14.5px; }
+body.dense2 .gloss { font-size: 13.5px; }
+body.dense2 .rel-front { font-size: 13.5px; }
 body.dense2 .tr, body.dense2 .rel-sub { font-size: 14.5px; }
 """
 
