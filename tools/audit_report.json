@@ -1,0 +1,45 @@
+{
+ "dict_checked_parts": 431,
+ "certain": [
+  {
+   "id": 1014,
+   "front": "手取り",
+   "part": "手取り",
+   "card_reading": "てどり",
+   "dict_readings": [
+    "てとり"
+   ]
+  }
+ ],
+ "review": [],
+ "furigana_flags": [
+  {
+   "id": 2784,
+   "front": "〜気味",
+   "text": "風邪気味で、今日は少しだるい。",
+   "tokenizer_reading": "ぎみ",
+   "card_reading": "きみ"
+  },
+  {
+   "id": 2784,
+   "front": "〜気味",
+   "text": "風邪気味",
+   "tokenizer_reading": "ぎみ",
+   "card_reading": "きみ"
+  },
+  {
+   "id": 2784,
+   "front": "〜気味",
+   "text": "太り気味",
+   "tokenizer_reading": "ぎみ",
+   "card_reading": "きみ"
+  },
+  {
+   "id": 2784,
+   "front": "〜気味",
+   "text": "下り気味",
+   "tokenizer_reading": "ぎみ",
+   "card_reading": "きみ"
+  }
+ ]
+}
