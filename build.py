@@ -43,6 +43,44 @@ CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩"
 ICON_FILE = "chatgpt-icon.png"
 _TKZ = Tokenizer()
 
+# Janome splits some words into pieces whose concatenated reading is wrong
+# (実店舗 -> 実ジツ+店舗テンポ = じつてんぽ; correct is the sokuon form
+# じってんぽ). Merge consecutive tokens back into one token with the
+# correct reading before furigana/highlight processing.
+READING_OVERRIDES = {"実店舗": "ジッテンポ"}
+
+
+class _Tok:
+    def __init__(self, surface, reading, pos):
+        self.surface = surface
+        self.reading = reading
+        self.part_of_speech = pos
+
+
+def _tokens(text):
+    toks = list(_TKZ.tokenize(text))
+    out = []
+    i = 0
+    while i < len(toks):
+        merged = None
+        for surf, rdg in READING_OVERRIDES.items():
+            cat = ""
+            j = i
+            while j < len(toks) and len(cat) < len(surf):
+                cat += toks[j].surface
+                j += 1
+            if cat == surf:
+                merged = _Tok(surf, rdg, toks[i].part_of_speech)
+                i = j
+                break
+        if merged is not None:
+            out.append(merged)
+        else:
+            out.append(toks[i])
+            i += 1
+    return out
+
+
 CSS = """
 .card { font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
   font-size: 19px; color: #2a251d; background: #faf7f0; line-height: 1.65;
@@ -339,7 +377,7 @@ def furigana_html(text, stem, stem_kana=None):
     cur = None
     glue_next = False
     highlighted = False
-    for tok in _TKZ.tokenize(text):
+    for tok in _tokens(text):
         surf = tok.surface
         reading = _to_hira(tok.reading) if tok.reading and tok.reading != "*" else None
         piece = _ruby_html(surf, reading) if reading else html.escape(surf)
