@@ -68965,5 +68965,1223 @@
     "note": "ヒヤヒヤ更偏怕后果、冒冷汗；ハラハラ偏旁观险情时的揪心"
    }
   ]
+ },
+ {
+  "id": 2846,
+  "front": "湧き出てくる",
+  "reading": "わきでてくる",
+  "meaning": "（感情、想法）涌现出来、油然而生",
+  "senses": [
+   {
+    "gloss": "（感情、想法等从内心）涌现出来、油然而生",
+    "example": "話を聞いていたら、涙が湧き出てきた。",
+    "example_zh": "听着听着，眼泪涌了出来。"
+   }
+  ],
+  "collocations": [
+   "涙が湧き出てくる",
+   "アイデアが湧き出てくる",
+   "勇気が湧き出てくる"
+  ],
+  "cat": "地道表达",
+  "pairs": [
+   {
+    "front": "湧き上がる",
+    "reading": "わきあがる",
+    "meaning": "（欢呼、感情）涌起、沸腾",
+    "register": "近義",
+    "note": "湧き上がる偏向上的涌起（欢呼、掌声）；湧き出てくる偏从内心深处源源不断地冒出来"
+   }
+  ]
+ },
+ {
+  "id": 2847,
+  "front": "バージョンを戻す",
+  "reading": "ばーじょんをもどす",
+  "meaning": "回退版本",
+  "senses": [
+   {
+    "gloss": "回退版本",
+    "example": "バージョンを戻して様子を見ます。",
+    "example_zh": "先回退版本观察一下。"
+   }
+  ],
+  "collocations": [
+   "バージョンを戻す"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2848,
+  "front": "再提出する",
+  "reading": "さいていしゅつする",
+  "meaning": "重新提交",
+  "senses": [
+   {
+    "gloss": "重新提交",
+    "example": "修正したので再提出します。",
+    "example_zh": "改好了，重新提交。"
+   }
+  ],
+  "collocations": [
+   "再提出する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2849,
+  "front": "反映させる",
+  "reading": "はんえいさせる",
+  "meaning": "反映进去、体现出来",
+  "senses": [
+   {
+    "gloss": "反映进去、体现出来",
+    "example": "ご指摘を仕様に反映させます。",
+    "example_zh": "把您的指摘反映到需求里。"
+   }
+  ],
+  "collocations": [
+   "反映させる"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2850,
+  "front": "撤回する",
+  "reading": "てっかいする",
+  "meaning": "撤回",
+  "senses": [
+   {
+    "gloss": "撤回",
+    "example": "提案を撤回することにしました。",
+    "example_zh": "决定撤回提案。"
+   }
+  ],
+  "collocations": [
+   "撤回する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2851,
+  "front": "先送りする",
+  "reading": "さきおくりする",
+  "meaning": "推后、延期",
+  "senses": [
+   {
+    "gloss": "推后、延期",
+    "example": "リリースを来週に先送りします。",
+    "example_zh": "发布推迟到下周。"
+   }
+  ],
+  "collocations": [
+   "先送りする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2852,
+  "front": "納期を早める",
+  "reading": "のうきをはやめる",
+  "meaning": "提前交期",
+  "senses": [
+   {
+    "gloss": "提前交期",
+    "example": "納期を早めることはできますか。",
+    "example_zh": "交期能提前吗？"
+   }
+  ],
+  "collocations": [
+   "納期を早める"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2853,
+  "front": "繰り下げる",
+  "reading": "くりさげる",
+  "meaning": "推迟（日期）",
+  "senses": [
+   {
+    "gloss": "推迟（日期）",
+    "example": "開始を来月に繰り下げます。",
+    "example_zh": "开始时间推迟到下个月。"
+   }
+  ],
+  "collocations": [
+   "繰り下げる"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2854,
+  "front": "繰り越す",
+  "reading": "くりこす",
+  "meaning": "顺延到下次",
+  "senses": [
+   {
+    "gloss": "顺延到下次",
+    "example": "残タスクを来週に繰り越します。",
+    "example_zh": "剩余任务顺延到下周。"
+   }
+  ],
+  "collocations": [
+   "繰り越す"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2855,
+  "front": "前倒しする",
+  "reading": "まえだおしする",
+  "meaning": "提前（做）",
+  "senses": [
+   {
+    "gloss": "提前（做）",
+    "example": "前倒しして対応します。",
+    "example_zh": "提前处理。"
+   }
+  ],
+  "collocations": [
+   "前倒しする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2856,
+  "front": "後ろ倒しする",
+  "reading": "うしろだおしする",
+  "meaning": "推后",
+  "senses": [
+   {
+    "gloss": "推后",
+    "example": "納期が後ろ倒しになりました。",
+    "example_zh": "交期推后了。"
+   }
+  ],
+  "collocations": [
+   "後ろ倒しする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2857,
+  "front": "カバーする",
+  "reading": "かばーする",
+  "meaning": "顶上、代班",
+  "senses": [
+   {
+    "gloss": "顶上、代班",
+    "example": "休みの人の分をカバーします。",
+    "example_zh": "替休假的人顶上。"
+   }
+  ],
+  "collocations": [
+   "カバーする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2858,
+  "front": "受け継ぐ",
+  "reading": "うけつぐ",
+  "meaning": "继承、接手",
+  "senses": [
+   {
+    "gloss": "继承、接手",
+    "example": "前の担当から業務を受け継ぎました。",
+    "example_zh": "从前任那里接手了业务。"
+   }
+  ],
+  "collocations": [
+   "受け継ぐ"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2859,
+  "front": "引き継ぎ",
+  "reading": "ひきつぎ",
+  "meaning": "交接（名词）",
+  "senses": [
+   {
+    "gloss": "交接（名词）",
+    "example": "引き継ぎは来週の月曜に行います。",
+    "example_zh": "交接在下周一进行。"
+   }
+  ],
+  "collocations": [
+   "引き継ぎ"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2860,
+  "front": "棚上げする",
+  "reading": "たなあげする",
+  "meaning": "搁置、先放一放",
+  "senses": [
+   {
+    "gloss": "搁置、先放一放",
+    "example": "その要望は一旦棚上げします。",
+    "example_zh": "那个需求先搁置。"
+   }
+  ],
+  "collocations": [
+   "棚上げする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2861,
+  "front": "宿題にする",
+  "reading": "しゅくだいにする",
+  "meaning": "留作待办",
+  "senses": [
+   {
+    "gloss": "留作待办",
+    "example": "この件は宿題にさせてください。",
+    "example_zh": "这件事请容我留作待办。"
+   }
+  ],
+  "collocations": [
+   "宿題にする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2862,
+  "front": "来週に回す",
+  "reading": "らいしゅうにまわす",
+  "meaning": "推到下周",
+  "senses": [
+   {
+    "gloss": "推到下周",
+    "example": "決めきれないので来週に回します。",
+    "example_zh": "定不下来，推到下周。"
+   }
+  ],
+  "collocations": [
+   "来週に回す"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2863,
+  "front": "積み残し",
+  "reading": "つみのこし",
+  "meaning": "遗留、积压",
+  "senses": [
+   {
+    "gloss": "遗留、积压",
+    "example": "積み残しを片付けます。",
+    "example_zh": "把积压处理掉。"
+   }
+  ],
+  "collocations": [
+   "積み残し"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2864,
+  "front": "消化する",
+  "reading": "しょうかする",
+  "meaning": "消化、处理掉（任务）",
+  "senses": [
+   {
+    "gloss": "消化、处理掉（任务）",
+    "example": "タスクを消化しました。",
+    "example_zh": "任务处理完了。"
+   }
+  ],
+  "collocations": [
+   "消化する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2865,
+  "front": "詰める",
+  "reading": "つめる",
+  "meaning": "敲定、落实细节",
+  "senses": [
+   {
+    "gloss": "敲定、落实细节",
+    "example": "仕様をもう少し詰めましょう。",
+    "example_zh": "再把需求细节敲定一下。"
+   }
+  ],
+  "collocations": [
+   "詰める"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2866,
+  "front": "すり合わせる",
+  "reading": "すりあわせる",
+  "meaning": "对齐、磨合",
+  "senses": [
+   {
+    "gloss": "对齐、磨合",
+    "example": "認識をすり合わせましょう。",
+    "example_zh": "我们对齐一下认识。"
+   }
+  ],
+  "collocations": [
+   "すり合わせる"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2867,
+  "front": "明文化する",
+  "reading": "めいぶんかする",
+  "meaning": "写成明文",
+  "senses": [
+   {
+    "gloss": "写成明文",
+    "example": "ルールを明文化しておきます。",
+    "example_zh": "把规则写成明文。"
+   }
+  ],
+  "collocations": [
+   "明文化する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2868,
+  "front": "抽出する",
+  "reading": "ちゅうしゅつする",
+  "meaning": "抽取、提取",
+  "senses": [
+   {
+    "gloss": "抽取、提取",
+    "example": "対象データを抽出します。",
+    "example_zh": "提取目标数据。"
+   }
+  ],
+  "collocations": [
+   "抽出する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2869,
+  "front": "切り分ける",
+  "reading": "きりわける",
+  "meaning": "区分、切分（问题范围）",
+  "senses": [
+   {
+    "gloss": "区分、切分（问题范围）",
+    "example": "フロントとバックエンドの問題を切り分けました。",
+    "example_zh": "把前端和后端的问题区分开了。"
+   }
+  ],
+  "collocations": [
+   "切り分ける"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2870,
+  "front": "絞り込む",
+  "reading": "しぼりこむ",
+  "meaning": "缩小范围、锁定",
+  "senses": [
+   {
+    "gloss": "缩小范围、锁定",
+    "example": "原因を絞り込みました。",
+    "example_zh": "把原因锁定了。"
+   }
+  ],
+  "collocations": [
+   "絞り込む"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2871,
+  "front": "掘り下げる",
+  "reading": "ほりさげる",
+  "meaning": "深挖",
+  "senses": [
+   {
+    "gloss": "深挖",
+    "example": "ログを掘り下げて調べます。",
+    "example_zh": "深挖日志查一下。"
+   }
+  ],
+  "collocations": [
+   "掘り下げる"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2872,
+  "front": "特定する",
+  "reading": "とくていする",
+  "meaning": "确定、锁定",
+  "senses": [
+   {
+    "gloss": "确定、锁定",
+    "example": "原因を特定しました。",
+    "example_zh": "确定原因了。"
+   }
+  ],
+  "collocations": [
+   "特定する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2873,
+  "front": "突合する",
+  "reading": "とつごうする",
+  "meaning": "核对、比对",
+  "senses": [
+   {
+    "gloss": "核对、比对",
+    "example": "請求データと突合します。",
+    "example_zh": "和账单数据核对一下。"
+   }
+  ],
+  "collocations": [
+   "突合する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2874,
+  "front": "照合する",
+  "reading": "しょうごうする",
+  "meaning": "核对、对照",
+  "senses": [
+   {
+    "gloss": "核对、对照",
+    "example": "入力値と登録情報を照合しました。",
+    "example_zh": "核对了输入值和注册信息。"
+   }
+  ],
+  "collocations": [
+   "照合する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2875,
+  "front": "吸収する",
+  "reading": "きゅうしゅうする",
+  "meaning": "吸收、消化（差异/影响）",
+  "senses": [
+   {
+    "gloss": "吸收、消化（差异/影响）",
+    "example": "互換性の差分を吸収しました。",
+    "example_zh": "吸收了兼容性差异。"
+   }
+  ],
+  "collocations": [
+   "吸収する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2876,
+  "front": "丸投げする",
+  "reading": "まるなげする",
+  "meaning": "全盘甩给别人",
+  "senses": [
+   {
+    "gloss": "全盘甩给别人",
+    "example": "丸投げせずに一緒に進めましょう。",
+    "example_zh": "别全盘甩过来，一起推进吧。"
+   }
+  ],
+  "collocations": [
+   "丸投げする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2877,
+  "front": "手離れする",
+  "reading": "てばなれする",
+  "meaning": "脱手、不用再管",
+  "senses": [
+   {
+    "gloss": "脱手、不用再管",
+    "example": "自動化したので手離れしました。",
+    "example_zh": "自动化之后就不用管了。"
+   }
+  ],
+  "collocations": [
+   "手離れする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2878,
+  "front": "手戻り",
+  "reading": "てもどり",
+  "meaning": "返工",
+  "senses": [
+   {
+    "gloss": "返工",
+    "example": "仕様変更で手戻りが発生しました。",
+    "example_zh": "需求变更导致返工了。"
+   }
+  ],
+  "collocations": [
+   "手戻り"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2879,
+  "front": "工数を抑える",
+  "reading": "こうすうをおさえる",
+  "meaning": "控制工时",
+  "senses": [
+   {
+    "gloss": "控制工时",
+    "example": "工数を抑えるために既存の部品を使います。",
+    "example_zh": "为控制工时用现成组件。"
+   }
+  ],
+  "collocations": [
+   "工数を抑える"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2880,
+  "front": "概算を出す",
+  "reading": "がいさんをだす",
+  "meaning": "出概算",
+  "senses": [
+   {
+    "gloss": "出概算",
+    "example": "概算を出しておきます。",
+    "example_zh": "先出个概算。"
+   }
+  ],
+  "collocations": [
+   "概算を出す"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2881,
+  "front": "着手する",
+  "reading": "ちゃくしゅする",
+  "meaning": "着手、开始做",
+  "senses": [
+   {
+    "gloss": "着手、开始做",
+    "example": "来週から着手します。",
+    "example_zh": "下周开始做。"
+   }
+  ],
+  "collocations": [
+   "着手する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2882,
+  "front": "完了する",
+  "reading": "かんりょうする",
+  "meaning": "完成",
+  "senses": [
+   {
+    "gloss": "完成",
+    "example": "作業は完了しました。",
+    "example_zh": "作业完成了。"
+   }
+  ],
+  "collocations": [
+   "完了する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2883,
+  "front": "目処が立つ",
+  "reading": "めどがたつ",
+  "meaning": "有眉目了、有头绪",
+  "senses": [
+   {
+    "gloss": "有眉目了、有头绪",
+    "example": "修正の目処が立ちました。",
+    "example_zh": "修复有眉目了。"
+   }
+  ],
+  "collocations": [
+   "目処が立つ"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2884,
+  "front": "目処が立たない",
+  "reading": "めどがたたない",
+  "meaning": "没头绪",
+  "senses": [
+   {
+    "gloss": "没头绪",
+    "example": "原因の目処が立ちません。",
+    "example_zh": "原因一点头绪都没有。"
+   }
+  ],
+  "collocations": [
+   "目処が立たない"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2885,
+  "front": "段取り",
+  "reading": "だんどり",
+  "meaning": "安排、步骤",
+  "senses": [
+   {
+    "gloss": "安排、步骤",
+    "example": "段取りを確認します。",
+    "example_zh": "确认一下安排。"
+   }
+  ],
+  "collocations": [
+   "段取り"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2886,
+  "front": "事前調整する",
+  "reading": "じぜんちょうせいする",
+  "meaning": "事先协调",
+  "senses": [
+   {
+    "gloss": "事先协调",
+    "example": "事前調整しておきます。",
+    "example_zh": "先事先协调一下。"
+   }
+  ],
+  "collocations": [
+   "事前調整する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2887,
+  "front": "念のため",
+  "reading": "ねんのため",
+  "meaning": "以防万一",
+  "senses": [
+   {
+    "gloss": "以防万一",
+    "example": "念のためバックアップを取ります。",
+    "example_zh": "以防万一先备份。"
+   }
+  ],
+  "collocations": [
+   "念のため"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2888,
+  "front": "念押しする",
+  "reading": "ねんおしする",
+  "meaning": "再三确认、叮嘱",
+  "senses": [
+   {
+    "gloss": "再三确认、叮嘱",
+    "example": "念押ししますが締め切りは金曜です。",
+    "example_zh": "再确认一下，截止是周五。"
+   }
+  ],
+  "collocations": [
+   "念押しする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2889,
+  "front": "念頭に置く",
+  "reading": "ねんとうにおく",
+  "meaning": "放在心上、留意",
+  "senses": [
+   {
+    "gloss": "放在心上、留意",
+    "example": "性能を念頭に置いて設計します。",
+    "example_zh": "设计时把性能放在心上。"
+   }
+  ],
+  "collocations": [
+   "念頭に置く"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2890,
+  "front": "意識しておく",
+  "reading": "いしきしておく",
+  "meaning": "留意、记着",
+  "senses": [
+   {
+    "gloss": "留意、记着",
+    "example": "この制約は意識しておいてください。",
+    "example_zh": "请留意这个限制。"
+   }
+  ],
+  "collocations": [
+   "意識しておく"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2891,
+  "front": "手に負えない",
+  "reading": "てにおえない",
+  "meaning": "应付不了、搞不定",
+  "senses": [
+   {
+    "gloss": "应付不了、搞不定",
+    "example": "原因が複雑で手に負えません。",
+    "example_zh": "原因太复杂，搞不定。"
+   }
+  ],
+  "collocations": [
+   "手に負えない"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2892,
+  "front": "お手上げ",
+  "reading": "おてあげ",
+  "meaning": "束手无策",
+  "senses": [
+   {
+    "gloss": "束手无策",
+    "example": "原因不明でお手上げです。",
+    "example_zh": "原因不明，束手无策了。"
+   }
+  ],
+  "collocations": [
+   "お手上げ"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2893,
+  "front": "様子を見る",
+  "reading": "ようすをみる",
+  "meaning": "先观察一下",
+  "senses": [
+   {
+    "gloss": "先观察一下",
+    "example": "様子を見てから対応します。",
+    "example_zh": "先观察一下再处理。"
+   }
+  ],
+  "collocations": [
+   "様子を見る"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2894,
+  "front": "動向を見る",
+  "reading": "どうこうをみる",
+  "meaning": "关注动向",
+  "senses": [
+   {
+    "gloss": "关注动向",
+    "example": "ユーザーの動向を見ます。",
+    "example_zh": "关注用户的动向。"
+   }
+  ],
+  "collocations": [
+   "動向を見る"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2895,
+  "front": "一旦保留する",
+  "reading": "いったんほりゅうする",
+  "meaning": "暂时保留",
+  "senses": [
+   {
+    "gloss": "暂时保留",
+    "example": "一旦保留して後で判断します。",
+    "example_zh": "先暂时保留，之后再判断。"
+   }
+  ],
+  "collocations": [
+   "一旦保留する"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2896,
+  "front": "保留事項",
+  "reading": "ほりゅうじこう",
+  "meaning": "待定事项",
+  "senses": [
+   {
+    "gloss": "待定事项",
+    "example": "保留事項をリストにしました。",
+    "example_zh": "把待定事项列出来了。"
+   }
+  ],
+  "collocations": [
+   "保留事項"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2897,
+  "front": "仮決め",
+  "reading": "かりぎめ",
+  "meaning": "暂定",
+  "senses": [
+   {
+    "gloss": "暂定",
+    "example": "仮決めで進めましょう。",
+    "example_zh": "先按暂定推进。"
+   }
+  ],
+  "collocations": [
+   "仮決め"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2898,
+  "front": "その場しのぎ",
+  "reading": "そのばしのぎ",
+  "meaning": "权宜之计、临时应付",
+  "senses": [
+   {
+    "gloss": "权宜之计、临时应付",
+    "example": "その場しのぎではいけません。",
+    "example_zh": "不能只是临时应付。"
+   }
+  ],
+  "collocations": [
+   "その場しのぎ"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2899,
+  "front": "抜本的な対策",
+  "reading": "ばっぽんてきなたいさく",
+  "meaning": "根本性对策",
+  "senses": [
+   {
+    "gloss": "根本性对策",
+    "example": "抜本的な対策が必要です。",
+    "example_zh": "需要根本性对策。"
+   }
+  ],
+  "collocations": [
+   "抜本的な対策"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2900,
+  "front": "応急処置",
+  "reading": "おうきゅうしょち",
+  "meaning": "应急处理",
+  "senses": [
+   {
+    "gloss": "应急处理",
+    "example": "応急処置としてキャッシュを消しました。",
+    "example_zh": "应急处理先清了缓存。"
+   }
+  ],
+  "collocations": [
+   "応急処置"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2901,
+  "front": "付け焼き刃",
+  "reading": "つけやきば",
+  "meaning": "临时抱佛脚、权宜之计",
+  "senses": [
+   {
+    "gloss": "临时抱佛脚、权宜之计",
+    "example": "付け焼き刃の対応ではまた壊れます。",
+    "example_zh": "权宜之计的话还会坏。"
+   }
+  ],
+  "collocations": [
+   "付け焼き刃"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2902,
+  "front": "場当たり的",
+  "reading": "ばあたりてき",
+  "meaning": "随机的、临时应付的",
+  "senses": [
+   {
+    "gloss": "随机的、临时应付的",
+    "example": "場当たり的な修正はやめましょう。",
+    "example_zh": "别做随机的临时修复。"
+   }
+  ],
+  "collocations": [
+   "場当たり的"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2903,
+  "front": "対症療法",
+  "reading": "たいしょうりょうほう",
+  "meaning": "对症处理、治标",
+  "senses": [
+   {
+    "gloss": "对症处理、治标",
+    "example": "対症療法に過ぎません。",
+    "example_zh": "这只是治标。"
+   }
+  ],
+  "collocations": [
+   "対症療法"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2904,
+  "front": "根本的な解決",
+  "reading": "こんぽんてきなかいけつ",
+  "meaning": "根本解决",
+  "senses": [
+   {
+    "gloss": "根本解决",
+    "example": "根本的な解決が必要です。",
+    "example_zh": "需要根本解决。"
+   }
+  ],
+  "collocations": [
+   "根本的な解決"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2905,
+  "front": "焼け石に水",
+  "reading": "やけいしにみず",
+  "meaning": "杯水车薪",
+  "senses": [
+   {
+    "gloss": "杯水车薪",
+    "example": "この修正は焼け石に水です。",
+    "example_zh": "这个修复是杯水车薪。"
+   }
+  ],
+  "collocations": [
+   "焼け石に水"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2906,
+  "front": "後手に回る",
+  "reading": "ごてにまわる",
+  "meaning": "慢了一步、被动",
+  "senses": [
+   {
+    "gloss": "慢了一步、被动",
+    "example": "対応が後手に回りました。",
+    "example_zh": "应对慢了一步。"
+   }
+  ],
+  "collocations": [
+   "後手に回る"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2907,
+  "front": "先手を打つ",
+  "reading": "せんてをうつ",
+  "meaning": "先下手为强、提前行动",
+  "senses": [
+   {
+    "gloss": "先下手为强、提前行动",
+    "example": "先手を打って連絡しました。",
+    "example_zh": "提前联系了。"
+   }
+  ],
+  "collocations": [
+   "先手を打つ"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2908,
+  "front": "先読みする",
+  "reading": "さきよみする",
+  "meaning": "预判",
+  "senses": [
+   {
+    "gloss": "预判",
+    "example": "先読みして対策を考えます。",
+    "example_zh": "预判一下想好对策。"
+   }
+  ],
+  "collocations": [
+   "先読みする"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2909,
+  "front": "読み違える",
+  "reading": "よみちがえる",
+  "meaning": "判断错误",
+  "senses": [
+   {
+    "gloss": "判断错误",
+    "example": "仕様を読み違えていました。",
+    "example_zh": "把需求理解错了。"
+   }
+  ],
+  "collocations": [
+   "読み違える"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2910,
+  "front": "判断を誤る",
+  "reading": "はんだんをあやまる",
+  "meaning": "判断失误",
+  "senses": [
+   {
+    "gloss": "判断失误",
+    "example": "優先順位の判断を誤りました。",
+    "example_zh": "对优先级的判断失误了。"
+   }
+  ],
+  "collocations": [
+   "判断を誤る"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2911,
+  "front": "想定外",
+  "reading": "そうていがい",
+  "meaning": "预料之外",
+  "senses": [
+   {
+    "gloss": "预料之外",
+    "example": "想定外の負荷がかかっています。",
+    "example_zh": "出现了预料之外的负载。"
+   }
+  ],
+  "collocations": [
+   "想定外"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2912,
+  "front": "想定内",
+  "reading": "そうていない",
+  "meaning": "预料之内",
+  "senses": [
+   {
+    "gloss": "预料之内",
+    "example": "想定内の範囲です。",
+    "example_zh": "在预料范围之内。"
+   }
+  ],
+  "collocations": [
+   "想定内"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2913,
+  "front": "許容範囲",
+  "reading": "きょようはんい",
+  "meaning": "容许范围",
+  "senses": [
+   {
+    "gloss": "容许范围",
+    "example": "許容範囲内です。",
+    "example_zh": "在容许范围之内。"
+   }
+  ],
+  "collocations": [
+   "許容範囲"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2914,
+  "front": "許容誤差",
+  "reading": "きょようごさ",
+  "meaning": "容许误差",
+  "senses": [
+   {
+    "gloss": "容许误差",
+    "example": "許容誤差を超えています。",
+    "example_zh": "超出容许误差了。"
+   }
+  ],
+  "collocations": [
+   "許容誤差"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2915,
+  "front": "余裕を見る",
+  "reading": "よゆうをみる",
+  "meaning": "留出余量",
+  "senses": [
+   {
+    "gloss": "留出余量",
+    "example": "余裕を見て一日多めに取ります。",
+    "example_zh": "留出余量，多取一天。"
+   }
+  ],
+  "collocations": [
+   "余裕を見る"
+  ],
+  "cat": "IT"
+ },
+ {
+  "id": 2916,
+  "front": "余裕を持つ",
+  "reading": "よゆうをもつ",
+  "meaning": "留有余地",
+  "senses": [
+   {
+    "gloss": "留有余地",
+    "example": "スケジュールに余裕を持ちましょう。",
+    "example_zh": "日程留点余地。"
+   }
+  ],
+  "collocations": [
+   "余裕を持つ"
+  ],
+  "cat": "IT"
  }
 ]
