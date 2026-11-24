@@ -133,7 +133,7 @@ CSS = """
 .nightMode .Gpt, .nightMode .GptL, .night-mode .Gpt, .night-mode .GptL,
 .night_mode .Gpt, .night_mode .GptL { filter: invert(1); }
 .faudio { width: 76px; text-align: right; }
-a.replaybutton, a.replay-button, button.replay-button {
+a.replaybutton, a.replay-button, button.replay-button, a.pbtn {
   display: inline-flex !important; align-items: center; justify-content: center;
   width: 30px !important; height: 30px !important; border-radius: 50%; border: none;
   background-color: rgba(90, 75, 50, 0.08);
@@ -141,11 +141,12 @@ a.replaybutton, a.replay-button, button.replay-button {
   background-repeat: no-repeat; background-position: center; background-size: 58% 58%;
   box-shadow: 0 2px 8px rgba(90, 75, 50, 0.12); vertical-align: middle; }
 .nightMode a.replaybutton, .nightMode a.replay-button,
-.night-mode a.replay-button, .night_mode a.replay-button {
+.night-mode a.replay-button, .night_mode a.replay-button,
+.nightMode a.pbtn, .night-mode a.pbtn, .night_mode a.pbtn {
   background-color: rgba(255, 255, 255, 0.10);
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20fill%3D%27%23f5ede0%27%20d%3D%27M3%209.2v5.6c0%20.6.4%201%201%201h3.4L12%2019.6c.5.4%201.3.1%201.3-.6V5c0-.7-.8-1-1.3-.6L7.4%208.2H4c-.6%200-1%20.4-1%201z%27%2F%3E%3Cpath%20fill%3D%27none%27%20stroke%3D%27%23f5ede0%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20d%3D%27M15.6%209.2a4%204%200%200%201%200%205.6%27%2F%3E%3Cpath%20fill%3D%27none%27%20stroke%3D%27%23f5ede0%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20d%3D%27M18%206.8a7.4%207.4%200%200%201%200%2010.4%27%2F%3E%3C%2Fsvg%3E");
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
-a.replaybutton:active, a.replay-button:active { transform: scale(0.93); }
+a.replaybutton:active, a.replay-button:active, a.pbtn:active { transform: scale(0.93); }
 a.replaybutton img, a.replay-button img, a.replay-button svg,
 button.replay-button svg, button.replay-button img {
   display: none !important; }
@@ -159,6 +160,7 @@ button.replay-button svg, button.replay-button img {
 .rel-audio a.replay-button svg, .rel-audio button.replay-button svg,
 .rel-audio button.replay-button img {
   width: 22px !important; height: 22px !important; }
+.rel-audio a.pbtn { width: 22px !important; height: 22px !important; }
 .rline { font-size: 16px; color: #6b6151; letter-spacing: .02em; margin-top: 2px; }
 .accdata { display: none; }
 .acc-h { border-top: 2px solid #c96a1e; padding-top: 1px; }
@@ -521,6 +523,14 @@ def furigana_html(text, stem, stem_kana=None):
     return "".join(f'<span class="u">{u["html"]}</span>' for u in units)
 
 
+def js_play_button(fname):
+    """Tap-to-play button that Anki's autoplay ignores (only [sound:] tags
+    autoplay). Used for headword and related-word audio; example-sentence
+    audio stays [sound:] so it still plays automatically."""
+    return ('<a class="pbtn" href="#" '
+            'onclick="new Audio(\'' + fname + '\').play();return false;"></a>')
+
+
 def ex_filename(card_id, idx):
     return f"{card_id}_ex.mp3" if idx == 0 else f"{card_id}_ex{idx + 1}.mp3"
 
@@ -629,7 +639,7 @@ def render_collocations(card, by_id, media_set):
             audio = ""
             fname = f"{p['id']}_front.mp3"
             if fname in media_set:
-                audio = f'<span class="rel-audio">[sound:{fname}]</span>'
+                audio = f'<span class="rel-audio">{js_play_button(fname)}</span>'
         else:
             d_front, d_reading, d_meaning = (
                 p["front"], p["reading"], p["meaning"])
@@ -729,7 +739,7 @@ def main():
     for c in cards:
         front_mp3 = f"{c['id']}_front.mp3"
         ex_mp3 = f"{c['id']}_ex.mp3"
-        front_audio = f"[sound:{front_mp3}]" if front_mp3 in media_set else ""
+        front_audio = js_play_button(front_mp3) if front_mp3 in media_set else ""
         ex_audio = f"[sound:{ex_mp3}]" if ex_mp3 in media_set else ""
         used = {front_mp3, ex_mp3} | {
             ex_filename(c["id"], i) for i in range(len(c["senses"]))
