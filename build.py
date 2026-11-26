@@ -161,6 +161,7 @@ button.replay-button svg, button.replay-button img {
 .rel-audio button.replay-button img {
   width: 22px !important; height: 22px !important; }
 .rel-audio a.pbtn { width: 22px !important; height: 22px !important; }
+.rel-head .Search { font-size: 12.5px; text-decoration: none; margin-left: 3px; opacity: .8; }
 .rline { font-size: 16px; color: #6b6151; letter-spacing: .02em; margin-top: 2px; }
 .accdata { display: none; }
 .acc-h { border-top: 2px solid #c96a1e; padding-top: 1px; }
@@ -255,6 +256,10 @@ QFMT = """
     if (a.classList.contains("Gpt") || a.classList.contains("GptL")) {
       var q = "日语「" + w + "」是什么意思？请给出读音、中文释义、常用搭配和3个日常例句，并说明它在口语和书面语里的区别。";
       a.href = "https://chatgpt.com/?q=" + encodeURIComponent(q);
+    } else if (a.classList.contains("Jump")) {
+      a.href = mobile
+        ? "anki://x-callback-url/search?query=" + encodeURIComponent('deck:native-nihongo "' + w + '"')
+        : "https://www.mojidict.com/searchText/" + encodeURIComponent(w);
     } else {
       a.href = mobile
         ? "mojisho://?search=" + encodeURIComponent(w)
@@ -648,7 +653,7 @@ def render_collocations(card, by_id, media_set):
         rows.append({
             "reg": p["register"], "front": d_front, "reading": d_reading,
             "meaning": d_meaning, "note": p.get("note") or "",
-            "scene": d_scene, "audio": audio,
+            "scene": d_scene, "audio": audio, "jump": "id" in p,
         })
 
     def head_html(r, with_chip=True):
@@ -656,9 +661,11 @@ def render_collocations(card, by_id, media_set):
         if with_chip:
             cls = CHIP_CLASS.get(r["reg"], "c-syn")
             chip = f'<span class="chip {cls}">{html.escape(r["reg"])}</span>'
+        jcls = " Jump" if r.get("jump") else ""
         return (
             '<div class="rel-head">' + chip
-            + f'<a class="Dict WordLink rel-front" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener">{_ruby_html(r["front"], _to_hira(r["reading"]))}</a>'
+            + f'<a class="Dict WordLink rel-front{jcls}" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener">{_ruby_html(r["front"], _to_hira(r["reading"]))}</a>'
+            f'<a class="Search" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener" title="MOJi辞書">🔍</a>'
             f'<a class="GptL" data-w="{html.escape(r["front"], quote=True)}" target="_blank" rel="noopener"></a>{r["audio"]}</div>'
         )
 
